@@ -23,18 +23,21 @@ features_train, features_test, labels_train, labels_test = preprocess()
 ### your code goes here ###
 
 from sklearn.svm import SVC
-
+print "SVC personalizado 1% do features e labels de treino"
 clf = SVC()
 
-t0 = time()
-clf.fit(features_train, labels_train)  
-print "tempo de treinamento:", round(time()-t0, 3), "s"
+features_train = features_train[:len(features_train)/100]
+labels_train = labels_train[:len(labels_train)/100]
 
 SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
 	decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
 	max_iter=-1, probability=False, random_state=None, shrinking=True,
 	tol=0.001, verbose=False)
-	
+
+t0 = time()
+clf.fit(features_train, labels_train)  
+print "tempo de treinamento:", round(time()-t0, 3), "s"
+
 t1 = time()
 pred = clf.predict(features_test)
 print "tempo de testes:", round(time()-t1, 3), "s"
@@ -46,8 +49,11 @@ print "tempo de score:", round(time()-t2, 3), "s"
 print "Accuracy:", accuracy
 
 #########################################################
-#tempo de treinamento: 1176.652 s
-#tempo de testes: 123.497 s
-#tempo de score: 125.671 s
-#Accuracy: 0.492036405006
+#output
+
+#SVC personalizado 1% do features e labels de treino
+#tempo de treinamento: 0.172 s
+#tempo de testes: 1.536 s
+#tempo de score: 1.555 s
+#Accuracy: 0.616040955631
 
