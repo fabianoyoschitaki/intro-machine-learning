@@ -21,8 +21,24 @@ Class imbalance problem:
 - http://storm.cis.fordham.edu/~gweiss/papers/dmin07-weiss.pdf
 - http://www.jair.org/media/953/live-953-2037-jair.pdf
 - http://abricom.org.br/wp-content/uploads/2016/03/bricsccicbic2013_submission_20.pdf
-- http://www.kdnuggets.com/2016/08/learning-from-imbalanced-classes.html
 	
+--------------
+Scikit contrib on imbalaced data
 - https://github.com/scikit-learn-contrib/imbalanced-learn
 
+--------------
+- http://www.kdnuggets.com/2016/08/learning-from-imbalanced-classes.html
+That said, here is a rough outline of useful approaches. These are listed approximately in order of effort:
+
+- Do nothing. Sometimes you get lucky and nothing needs to be done. You can train on the so-called natural (or stratified) distribution and sometimes it works without need for modification.
+- Balance the training set in some way:
+-- Oversample the minority class.
+-- Undersample the majority class.
+-- Synthesize new minority classes.
+- Throw away minority examples and switch to an anomaly detection framework.
+- At the algorithm level, or after it:
+-- Adjust the class weight (misclassification costs).
+-- Adjust the decision threshold.
+-- Modify an existing algorithm to be more sensitive to rare classes.
+- Construct an entirely new algorithm to perform well on imbalanced data.
 
