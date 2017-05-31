@@ -47,3 +47,7 @@ That said, here is a rough outline of useful approaches. These are listed approx
 Ensemble method Machine Learning
 - https://www.toptal.com/machine-learning/ensemble-methods-machine-learning
 
+--------------
+Basic Concepts in Machine Learning
+- http://machinelearningmastery.com/basic-concepts-in-machine-learning/
+
