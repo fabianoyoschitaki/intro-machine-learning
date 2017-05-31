@@ -43,3 +43,7 @@ That said, here is a rough outline of useful approaches. These are listed approx
   - Modify an existing algorithm to be more sensitive to rare classes.
 - Construct an entirely new algorithm to perform well on imbalanced data.
 
+--------------
+Ensemble method Machine Learning
+- https://www.toptal.com/machine-learning/ensemble-methods-machine-learning
+
