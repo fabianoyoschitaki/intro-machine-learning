@@ -18,5 +18,8 @@ Class imbalance problem:
 	- http://www.marcoaltini.com/blog/dealing-with-imbalanced-data-undersampling-oversampling-and-proper-cross-validation
 	- https://gallery.cortanaintelligence.com/Experiment/Online-Fraud-Detection-working-with-unbalanced-class-data-1
 	- https://www.analyticsvidhya.com/blog/2016/03/practical-guide-deal-imbalanced-classification-problems/
+	- http://storm.cis.fordham.edu/~gweiss/papers/dmin07-weiss.pdf
+	- http://www.jair.org/media/953/live-953-2037-jair.pdf
+	- http://abricom.org.br/wp-content/uploads/2016/03/bricsccicbic2013_submission_20.pdf
 
 
