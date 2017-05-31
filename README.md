@@ -28,17 +28,18 @@ Scikit contrib on imbalaced data
 
 --------------
 - http://www.kdnuggets.com/2016/08/learning-from-imbalanced-classes.html
+
 That said, here is a rough outline of useful approaches. These are listed approximately in order of effort:
 
 - Do nothing. Sometimes you get lucky and nothing needs to be done. You can train on the so-called natural (or stratified) distribution and sometimes it works without need for modification.
 - Balance the training set in some way:
--- Oversample the minority class.
--- Undersample the majority class.
--- Synthesize new minority classes.
+  - Oversample the minority class.
+  - Undersample the majority class.
+  - Synthesize new minority classes.
 - Throw away minority examples and switch to an anomaly detection framework.
 - At the algorithm level, or after it:
--- Adjust the class weight (misclassification costs).
--- Adjust the decision threshold.
--- Modify an existing algorithm to be more sensitive to rare classes.
+  - Adjust the class weight (misclassification costs).
+  - Adjust the decision threshold.
+  - Modify an existing algorithm to be more sensitive to rare classes.
 - Construct an entirely new algorithm to perform well on imbalanced data.
 
