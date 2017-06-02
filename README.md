@@ -51,3 +51,7 @@ Ensemble method Machine Learning
 Basic Concepts in Machine Learning
 - http://machinelearningmastery.com/basic-concepts-in-machine-learning/
 
+--------------
+Python begginer - Code Academy
+- https://www.codecademy.com/courses/python-beginner-pt-BR
+
