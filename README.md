@@ -59,3 +59,7 @@ Python begginer - Code Academy
 Introducing: Machine Learning in R
 - https://www.datacamp.com/community/tutorials/machine-learning-in-r#gs.qyPOXoU
 
+--------------
+Your First Machine Learning Project in R Step-By-Step (tutorial and template for future projects)
+http://machinelearningmastery.com/machine-learning-in-r-step-by-step/
+
