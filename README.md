@@ -55,3 +55,7 @@ Basic Concepts in Machine Learning
 Python begginer - Code Academy
 - https://www.codecademy.com/courses/python-beginner-pt-BR
 
+--------------
+Introducing: Machine Learning in R
+- https://www.datacamp.com/community/tutorials/machine-learning-in-r#gs.qyPOXoU
+
