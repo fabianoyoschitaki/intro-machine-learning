@@ -61,5 +61,8 @@ Introducing: Machine Learning in R
 
 --------------
 Your First Machine Learning Project in R Step-By-Step (tutorial and template for future projects)
-http://machinelearningmastery.com/machine-learning-in-r-step-by-step/
+- http://machinelearningmastery.com/machine-learning-in-r-step-by-step/
 
+--------------
+Python vs R for machine learning
+- https://datascience.stackexchange.com/questions/326/python-vs-r-for-machine-learning
