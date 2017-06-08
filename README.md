@@ -70,3 +70,7 @@ Python vs R for machine learning
 --------------
 Pros and Cons of R vs Python Sci-kit learn
 - https://www.kaggle.com/getting-started/5243
+
+--------------
+Should you teach Python or R for data science?
+- http://www.dataschool.io/python-or-r-for-data-science/
