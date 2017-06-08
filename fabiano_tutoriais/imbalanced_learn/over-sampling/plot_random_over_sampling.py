@@ -11,12 +11,15 @@ An illustration of the random over-sampling method.
 #          Guillaume Lemaitre <g.lemaitre58@gmail.com>
 # License: MIT
 
+#lib for plotting
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_classification
 from sklearn.decomposition import PCA
 
+#our oversampling method
 from imblearn.over_sampling import RandomOverSampler
 
+#printing documentation
 print(__doc__)
 
 # Generate the dataset

@@ -21,7 +21,8 @@ Class imbalance problem:
 - http://storm.cis.fordham.edu/~gweiss/papers/dmin07-weiss.pdf
 - http://www.jair.org/media/953/live-953-2037-jair.pdf
 - http://abricom.org.br/wp-content/uploads/2016/03/bricsccicbic2013_submission_20.pdf
-	
+
+- http://machinelearningmastery.com/tactics-to-combat-imbalanced-classes-in-your-machine-learning-dataset/
 --------------
 Scikit contrib on imbalaced data
 - https://github.com/scikit-learn-contrib/imbalanced-learn
