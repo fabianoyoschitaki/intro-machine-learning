@@ -66,3 +66,7 @@ Your First Machine Learning Project in R Step-By-Step (tutorial and template for
 --------------
 Python vs R for machine learning
 - https://datascience.stackexchange.com/questions/326/python-vs-r-for-machine-learning
+
+--------------
+Pros and Cons of R vs Python Sci-kit learn
+- https://www.kaggle.com/getting-started/5243
