@@ -1,0 +1,182 @@
+Supervised Classification Problem
+	Um monte de exemplos e você sabe a resposta certa para esses exemplos, mostrando ao carro qual o comportamento correto. Assim como se aprende a dirigir (pela observação). Dê um monte de exemplos e ele vai descobrir por conta o que está acontecendo. No deserto, se você correr muito corre o risco de capotar o carro. Dirigindo lentamente, o carro aprendeu a pegar o comportamento com milhares de quilometros de treino.
+	
+	Applications: Self-Driving Car (Google). 
+		Álbum com fotos taggeadas e reconhecer alguém na foto (Facebook). 
+		Mostrar preferências musicais e um monte de recursos dessa música (gênero etc), recomendar uma nova música. (Pandora, Netflix)
+	
+Unsupervised Classification
+	Analisar dados bancários em busca de transações estranhas e flagrar essas por fraude 
+		* Não dá para definir o que é uma transação estranha, não há exemplo do que isso possa significar
+	Reunir estudantes da Udacity em tipos baseados nos estilos de aprendizado.
+		* Clustering, não sabemos quais grupos existem
+		
+Features e Labels
+	
+soaring
+		|
+		|  o  o  o  o   -> like
+		| 
+		| x  x   x x	-> don't like
+		-------------
+light   relaxed		fast
+
+gráficos de dispersão (scatter plots). Machine Learning define a superfície de decisão (decision surface) data -> decision surface
+
+Naive Bayes
+
+-- 20 - calculando acurácia do NB -- 
+def NBAccuracy(features_train, labels_train, features_test, labels_test):
+    """ compute the accuracy of your Naive Bayes classifier """
+    ### import the sklearn module for GaussianNB
+    from sklearn.naive_bayes import GaussianNB
+
+    ### create classifier
+    clf = GaussianNB()
+
+    ### fit the classifier on the training features and labels
+    clf.fit(features_train, labels_train)
+
+    ### use the trained classifier to predict labels for the test features
+    pred = clf.predict(features_test)
+
+
+    ### calculate and return the accuracy on the test data
+    ### this is slightly different than the example, 
+    ### where we just print the accuracy
+    ### you might need to import an sklearn module
+    accuracy = clf.score(features_test, labels_test)
+    return accuracy
+
+	--------------------- base rule e naive base -------------
+	Bayes Rule (incorpora uma evidência de teste a uma probabilidade anterior)
+	
+	Teste de Câncer
+	
+	P(C) = 0.01 (probabilidade de ter o câncer C é 1%)
+	90% dos casos dão POSITIVOS se você tem C (sensitivity)
+	90% dos casos dão NEGATIVOS se você NÃO tem C (specitivity)
+	
+	Se você fizer o teste e der POSITIVO, qual a % de estar correto?
+	
+	8,3333% (desenhar diagrama)
+	
+	Bayes Rule -> prior probabilidade + test evidence = posterior probability
+
+	prior		P(C) = 0.01 (probabilidade de ter o câncer C é 1%)		P(-C) = 0.99 (99%)
+				P(Pos|C) = 0.9 (90%) sensitivity	
+				P(Neg|-C) = 0.9 (90%) specitivity	P(Pos|-C) = 0.1 (10%)
+				
+	posterior 	P(C|Pos) (probabilidade Câncer, dado que teste deu positivo) = P(C) * P(Pos|C)
+				P(-C|Pos) = P(-C) * P(Pos|-C) 
+	
+Text Learning - Naive Bayes (exemplo de E-mail, Chris usa .8 'deal', .1 'love' e .1 life, Sara .5 'love', .2 'deal' e .3 'life')
+	Quem mandou o e-mail Life Deal?
+	Priori: P(Chris) = 0.5 X 	(.1 * .8 * .5) = 0.04
+			P(Sara) = 0.5		(.3 * .2 * .5) = 0.03
+			
+			P(Chris| "Life Deal") = 0.04 / (0.04 + 0.03) = 0.57
+			P(Sara | "Life Deal") = 0.03 / (0.04 + 0.03) = 0.43
+			
+	E para "Love Deal"? 
+			P(Chris) = 0.5 X 	(.1 * .8 * .5) = 0.04
+			P(Sara) = 0.5		(.5 * .2 * .5) = 0.05
+			
+			P(Chris| "Life Deal") = 0.04 / (0.04 + 0.05) = 0.44
+			P(Sara | "Life Deal") = 0.05 / (0.04 + 0.05) = 0.55
+	
+	Naive Bayes é chamado de naive porque ignora as ordens das palavras. Pontos fracos e fortes:
+		- Fácil de implementar
+		- Google no começo confundiu "Chicago Bulls" com touros de Chicago. A ordem importava.
+	
+------------------------------------
+Segundo Algoritmo (SVM Supported Vector Machines)
+	maximizar a margem (que separa dois grupos distintos), classifica corretamente e maxima a margem.
+	Quando não consegue achar a linha, deixa um 'outlier' no grupo. SVMs podem ser não lineares e desenhar formas complexas.
+	Há grupos que não podem ser classificados, mas se adicionar um novo atributo, pode (|x|, x2+y2) e aí dá para desenhar a decision boundary.
+	Mas há um truque: uso de kernels. central tricks in all of the machine learning
+	
+	from sklearn import svm
+	clf = SVC(kernel="linear")
+	clf.fit(features_train, labels_train)  
+	
+	pred = clf.predict(features_test)
+	
+	SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+		decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
+		max_iter=-1, probability=False, random_state=None, shrinking=True,
+		tol=0.001, verbose=False)
+
+	Parameters for SVM: kernel, C and gamma (linear dividiu melhor e RBF deixou ilhas)
+		C: controls the tradeoff between smooth decision boundary and classifying training points correctly. 
+		The larger C is, less smooth is the decision boundary and more correct points are correctly classified 
+		Gamma: defines how far the influence of a single training example reaches. 
+			Low values -> far (decision boundary more flat)
+			High values -> close (decision boundary close to overfit, smoother)
+	
+	
+	Overfitting: common phenomena in machine learning that you have to be aware every time you do machine learning. 
+		One of the ways we can avoid overfitting is through the parameter of the algorithm. All three parameters (C, gamma and kernel)
+		affect overfitting. So this is a lot of the artistry of machine learning: to tune these parameters. There are some ways to detect overfitting
+		
+	Pontos fracos e fortes do SVM:
+		- Forte: funciona muito bem em domínios onde há uma margem clara de separação
+		- Fraco: não funciona muito bem em datasets muito grandes, porque o tempo de treinamento é cúbico em relação ao tamanho do dataset
+		- Fraco: também não funcionam bem com muitos ruídos (noise), overlapping classes, e aí onde Naive Bayes entra melhor.
+		- Fraco: se tiver muitas features e grande dataset, SVMs podem ser lentos e podem ser propensos a overfitting dos ruídos dos dados
+	
+---------------------------------------------
+Terceiro e último algoritmo de supervised Learning (Decision Trees)
+		
+	To windsurf with sun and wind conditions
+	
+	sun
+	| x  x x x o o o o o 
+	|x x x  x  o o oo o o
+	| x x x x   o o o o o 
+	|x  x  x x  o o o oo 
+	| x xx x  x  o  o oo
+	| x x  xx x x x xx x x
+	| x x x  x  x   x x xx 
+	|x x x x x x x x x x 
+	---------------------- wind
+	
+	podem ser utilizados tanto para classificação quanto para regressão 
+	no scikit -> Decision Tree Classifier
+
+-- exemplo --
+#!/usr/bin/python
+""" lecture and example code for decision tree unit """
+
+import sys
+from class_vis import prettyPicture, output_image
+from prep_terrain_data import makeTerrainData
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pylab as pl
+from classifyDT import classify
+
+features_train, labels_train, features_test, labels_test = makeTerrainData()
+
+### the classify() function in classifyDT is where the magic
+### happens--fill in this function in the file 'classifyDT.py'!
+clf = classify(features_train, labels_train)
+
+#### grader code, do not modify below this line
+
+prettyPicture(clf, features_test, labels_test)
+output_image("test.png", "png", open("test.png", "rb").read())
+
+--
+def classify(features_train, labels_train):
+    
+    ### your code goes here--should return a trained decision tree classifer
+    from sklearn import tree 
+    clf = tree.DecisionTreeClassifier()
+    clf.fit(features_train, labels_train)
+    
+    return clf
+		
+O overfitting acontece quando, por exemplo, min_split_sample = 2 (default), gerando muitos nós complexos na árvore
+
