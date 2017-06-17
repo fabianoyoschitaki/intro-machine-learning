@@ -180,6 +180,7 @@ def classify(features_train, labels_train):
 		
 O overfitting acontece quando, por exemplo, min_split_sample = 2 (default), gerando muitos nós complexos na árvore (com várias linhas e cortes para pegar apenas 2 pontos)
 
+------------------------------------------------------------------------------
 Entropy <- controls how a decision tree decides how to split the data.
 Definition: measure of impurity in a bunch of examples. What you try to do when building a DT is you're trying to find variables and split points along those variables that's gonna make subsets that are as pure as possible.
 
@@ -187,7 +188,7 @@ Entropy is basically the opposity of purity.
 	Ex 1: all examples are in the same class (say all are fraud), so entropy is 0 (cause purity is 100%)
 	Ex 2: all examples are evenly split between all the available classes, in this case entropy is 1.0, the maximum value
 
-Entropy formula is E[i] -Pi log2 (Pi). Pi = i/total, where i = total of samples of i class and total is the sum of all samples of all classes.
+Entropy formula is E[i] -Pi log2 (Pi). Pi = i/total, where i = total of samples of i label and total is the sum of all samples of all labels.
 
 Python: to calculate entropy formula
 
@@ -199,6 +200,54 @@ import math
 import math
 -1 * math.log(1, 2)
 
-Formula of Entropy
+Formula of Entropy: SUM of all P(classes), where P(class) = -P(class)/total * log(P(class))
+
+""" 
+    Calculating Entropy in a dataset of 2 classes 
+	evenly split, which yields entropy = 1, the max impurity situation
+"""
+    
+import math
+#Pslow 2/4 and Pfast 2/4
+
+pslow = 2.0/4
+pfast = 2.0/4
+entropy = -(pslow) * math.log(pslow, 2) -(pfast) * math.log(pfast, 2)
+print "entropy: ", entropy
+------------------------------------------------------------------------------
+Information Gain = entropy(parent) - [weighted average]entropy(children) 
+Decision Tree Algorithm goal is to MAXIMIZE INFORMATION GAIN
+
+Example: 3 features
+
+[grade	]	[bumpiness	]	[speed limit]	speed(label)
+steep		bumpy			yes				SLOW
+steep		smooth			yes				SLOW
+flat		bumpy			no				FAST
+steep		smooth			no				FAST
+
+entropy of parent = 1.0. 
+
+let's decide which variable we'll use to division. 
+Starting to calculate information gain on grade (inclinação):
+
+		SSFF
+   /			\
+steep 3		flat 1
+ (SSF)		 (F) <- entropy 0, as all the observations are of the same class.
+   /\
+   |
+   |
+  entropy is: -(Pslow) * log(Pslow) - (Pfast) * log(Pfast) = -(2.0/3) * math.log(2.0/3,2) -(1.0/3) * math.log(1.0/3,2) = 0.9182958340544896
+
+
+
+
+
+
+
+
+
+
 
 
