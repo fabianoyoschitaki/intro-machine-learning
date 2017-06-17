@@ -20,16 +20,20 @@ plt.ylim(0.0, 1.0)
 plt.scatter(bumpy_fast, grade_fast, color = "b", label="fast")
 plt.scatter(grade_slow, bumpy_slow, color = "r", label="slow")
 plt.legend()
-plt.xlabel("bumpiness")
-plt.ylabel("grade")
+plt.xlabel("Bumpiness")
+plt.ylabel("Grade")
 plt.show()
 ################################################################################
 
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
-from sklearn import tree 
-clf = tree.DecisionTreeClassifier(min_samples_split=10)
+#from sklearn import tree 
+#clf = tree.DecisionTreeClassifier(min_samples_split=40)
+
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+clf.fit(features_train, labels_train)
 
 try:
     prettyPicture(clf, features_test, labels_test)
