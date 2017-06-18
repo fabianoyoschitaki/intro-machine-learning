@@ -23,8 +23,9 @@ light   relaxed		fast
 
 gráficos de dispersão (scatter plots). Machine Learning define a superfície de decisão (decision surface) data -> decision surface
 
+************************************************************************************
 Naive Bayes
-
+************************************************************************************
 -- 20 - calculando acurácia do NB -- 
 def NBAccuracy(features_train, labels_train, features_test, labels_test):
     """ compute the accuracy of your Naive Bayes classifier """
@@ -89,8 +90,9 @@ Text Learning - Naive Bayes (exemplo de E-mail, Chris usa .8 'deal', .1 'love' e
 		- Fácil de implementar
 		- Google no começo confundiu "Chicago Bulls" com touros de Chicago. A ordem importava.
 	
-------------------------------------
+************************************************************************************
 Segundo Algoritmo (SVM Supported Vector Machines)
+************************************************************************************
 	maximizar a margem (que separa dois grupos distintos), classifica corretamente e maxima a margem.
 	Quando não consegue achar a linha, deixa um 'outlier' no grupo. SVMs podem ser não lineares e desenhar formas complexas.
 	Há grupos que não podem ser classificados, mas se adicionar um novo atributo, pode (|x|, x2+y2) e aí dá para desenhar a decision boundary.
@@ -125,8 +127,9 @@ Segundo Algoritmo (SVM Supported Vector Machines)
 		- Fraco: também não funcionam bem com muitos ruídos (noise), overlapping classes, e aí onde Naive Bayes entra melhor.
 		- Fraco: se tiver muitas features e grande dataset, SVMs podem ser lentos e podem ser propensos a overfitting dos ruídos dos dados
 	
----------------------------------------------
+************************************************************************************
 Terceiro e último algoritmo de supervised Learning (Decision Trees)
+************************************************************************************
 		
 	To windsurf with sun and wind conditions
 	
@@ -215,7 +218,7 @@ pfast = 2.0/4
 entropy = -(pslow) * math.log(pslow, 2) -(pfast) * math.log(pfast, 2)
 print "entropy: ", entropy
 ------------------------------------------------------------------------------
-Information Gain = entropy(parent) - [weighted average]entropy(children) 
+Information Gain = entropy(parent) - [weighted average]*entropy(children) 
 Decision Tree Algorithm goal is to MAXIMIZE INFORMATION GAIN
 
 Example: 3 features
@@ -226,10 +229,10 @@ steep		smooth			yes				SLOW
 flat		bumpy			no				FAST
 steep		smooth			no				FAST
 
-entropy of parent = 1.0. 
+==== entropy of parent = 1.0. 
 
 let's decide which variable we'll use to division. 
-Starting to calculate information gain on grade (inclinação):
+1 - Starting to calculate information gain on grade (inclinação):
 
 		SSFF
    /			\
@@ -238,15 +241,96 @@ steep 3		flat 1
    /\
    |
    |
-  entropy is: -(Pslow) * log(Pslow) - (Pfast) * log(Pfast) = -(2.0/3) * math.log(2.0/3,2) -(1.0/3) * math.log(1.0/3,2) = 0.9182958340544896
+  entropy is: -(Pslow) * log(Pslow) - (Pfast) * log(Pfast) = -(2.0/3) * math.log(2.0/3,2) -(1.0/3) * math.log(1.0/3,2) = 0.9184
+  
 
+entropy(children) = (slow)3/4 * 0.9184 + (fast)1/4 * 0 = 0.6888
 
+so, information gain based on grade is 1.0 - 0.6888 = 0.3112
 
+--------------------------------
+2 - Calculating information gain on bumpiness (irregularidade do terreno):
 
+		SSFF
+   /			\
+bumpy 2		smooth 2
+ (SF)		 (SF) <- entropy 1, as all the observations are evenly split.
+   /\
+   |
+   |
+  entropy is 1 as all the observations are evenly split
+  
+entropy(children) = (bumpy)2/4 * 1 + (fast)2/4 * 1 = 1.0
 
+so, information gain based on grade is 1.0 - 1.0 = 0.0 
+A split on bumpiness yields two children (bumpy and smooth) with an equal split of slow and fast classes. 
+There is zero information gain. This is probably not where we wanna split the sample to build the DT.
 
+--------------------------------
+3 - Calculating information gain on speed limit:
 
+		SSFF
+   /			\
+yes 2		no 2
+ (SS)		 (NN) <- entropy 0, as all the observations are of the same class.
+   /\
+   |
+   |
+  entropy is 0 as all the observations are of the same class
+  
+entropy(children) = (yes)2/4 * 0 + (no)2/4 * 0 = 0.0
 
+so, information gain based on grade is 1.0 - 0.0 = 1.0, 
+because it's very pure (all yes speed limit are labeled as SLOW and all no's are FAST)
+definitely it's where we want to make a split for the DT.
+
+--------------------------------
+Bias-Variance Dilemma
+- a high bias machine learning algorithm is one that practically ignores the data. 
+It has almost no capacity to learn anything, and it is called a bias.
+A bias car would be one that I can train, and no matter which way I train it, it doesn't do anything differently. 
+The other extreme is it can only replicate stuff it has seen before. That's an extremely high variance algorithm.
+The problem with that is it will react very poorly in situations it hasn't seen before because it doesn't have the 
+right bias to generalize to new stuff. In reality, what you want is something in the middle. 
+You have what's called a bias-variance trade-off. 
+You want an algorithm that has some authority to generalize, but is still very open to listen to the data. 
+You can turn a knob and make it more biased or it can be high variance and 
+the art of tilting that knob is the art of making machine learning amazing.
+--------------------------------
+Decision Trees strengths and weaknesses:
+ - They're prone to over fitting, especially if you have data that has lots of features and a complicated DT it can over fit the data
+ you have to be careful with the parameter tunes that you're picking when you use the DT to prevent this from happening. 
+ - You can build bigger classifiers out of DT in something called ENSEMBLE METHODS.
+
+--------------------------------
+Mini project on DT - tackle (abordar) - try to undertand who wrote an email based on the word content of that email using a DT.
+(decision_tree/*.py)
+
+Would a large number of features give you a more or less complex DT, all other things being equal?
+More complex
+
+************************************************************************************
+Fourth algorithm (by my own choice)
+************************************************************************************
+K nearest neighbors: simple, straightforward
+
+Ataboost: very powerful, usually used with DT (also called boosted decision tree), ensemble methods
+Random Forest: usually used with DT, ensemble methods
+
+* Ensemble methods: meta classifiers built from (usually) decision trees, 
+many classifiers working together to come up with a single decision. It's a little bit like how we choose our president by voting.
+There's a single decision of who's the president going to be, and there are many different people who have different opinions on what 
+that answer should be. So what you have to do is you ask the question of many different people and all together you come up with a 
+single answer.
+
+choose_your_own/your_algorithm.py 
+
+[Process]
+1 - do some research, get a general understanding
+2 - find sklearn documentation
+3 - deploy it! (get your hands dirty)
+4 - use it to make predictions 
+5 - evaluate it. what's the accuracy?
 
 
 
