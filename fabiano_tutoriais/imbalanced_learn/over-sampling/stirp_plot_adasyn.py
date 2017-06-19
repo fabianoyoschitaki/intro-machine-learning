@@ -13,7 +13,7 @@ Learning ADASYN method.
 # License: MIT
 
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_classification
+#from sklearn.datasets import make_classification
 from sklearn.decomposition import PCA
 import numpy as np
 from imblearn.over_sampling import ADASYN

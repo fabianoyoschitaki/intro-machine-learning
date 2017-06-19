@@ -75,3 +75,7 @@ Pros and Cons of R vs Python Sci-kit learn
 --------------
 Should you teach Python or R for data science?
 - http://www.dataschool.io/python-or-r-for-data-science/
+
+--------------
+Unofficial Windows Binaries for Python Extension Packages - Wheels
+- http://www.lfd.uci.edu/~gohlke/pythonlibs/
