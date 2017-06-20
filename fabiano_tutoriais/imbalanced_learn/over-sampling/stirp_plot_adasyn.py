@@ -31,7 +31,7 @@ print "Loading csv [", input_csv_file_name, "] task started..."
 output_text_file.write("Loading csv [" + input_csv_file_name + "] task started...\n")
 
 t_load_start = time()
-data = np.loadtxt(input_csv_file_name, delimiter=';',skiprows=1500000, dtype="int")
+data = np.loadtxt(input_csv_file_name, delimiter=';',skiprows=1, dtype="int")
 t_load_end = round(time()-t_load_start, 3)
 print "Loading csv [", input_csv_file_name, "] task took:", t_load_end, "s"
 output_text_file.write("Loading csv [" + input_csv_file_name + "] task took:" + str(t_load_end) + "s\n\n")
