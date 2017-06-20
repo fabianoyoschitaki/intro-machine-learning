@@ -1,124 +1,126 @@
 """
-======
-ADASYN Method
-======
-
+==================================================================
+ADASYN Over-sampling Method applied to real financial transactions
+==================================================================
 An illustration of the Adaptive Synthetic Sampling Approach for Imbalanced
-Learning ADASYN method.
-
+Learning ADASYN method applied to real financial transactions for STIRP project
 """
 
-# Authors: Christos Aridas
-#          Guillaume Lemaitre <g.lemaitre58@gmail.com>
-# License: MIT
+# Authors: Fabiano Yoschitaki <fabianoyoschitaki@gmail.com>
 
 import matplotlib.pyplot as plt
-#from sklearn.datasets import make_classification
-from sklearn.decomposition import PCA
 import numpy as np
+from sklearn.decomposition import PCA
 from imblearn.over_sampling import ADASYN
 from time import time
 
 print(__doc__)
 
-# Generate the dataset
-#X, y = make_classification(
-#	n_classes=2, 
-#	class_sep=2, 
-#	weights=[0.1, 0.9], #fraude, nao fraude
-#	n_informative=3, 
-#	n_redundant=1, 
-#	flip_y=0,
-#	n_features=5, 
-#	n_clusters_per_class=1,
-#	n_samples=100, 
-#	random_state=10)
-#X = <type 'numpy.ndarray'>
-#y = <type 'numpy.ndarray'>
-#X.shape = valor de n_samples, valor de n_features (tamanho dim1 e dim2)
-#y.shape = valor de n_samples
-#print "type(X):", type(X)
-#print "type(X[0][0]):", type(X[0][0])
-#print "X.shape:", X.shape
-#print
-#print "type(y):", type(y)
-#print "type(y[0]):", type(y[0])
-#print "y.shape:", y.shape
-#print 
-#X.dtype = float64
-#y.dtype = int32
-#X.size = n_samples * valor de n_features
-#y.size = n_samples
-#X.ndim = 2
-#y.ndim = 1
-#for i in range(0, X.shape[0]):
-#    print "(",i,") ", str(X[i][0]),",",str(X[i][1]),",",str(X[i][2]),",",str(X[i][3]),",",str(X[i][4]),"->",str(y[i])
+# Load transactions from csv file. Skipping first row (header data)
+data = np.loadtxt('TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv', delimiter=';',skiprows=1, dtype="int")
 
-# Load transactions
-data = np.loadtxt('TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv', delimiter=';',skiprows=1)
-idx_OUT_columns = [14] # We want column 14 FL_FRAUDE to y array
-idx_IN_columns = [i for i in xrange(np.shape(data)[1]) if i not in idx_OUT_columns] # We want all columns except 14 to be in X array
-X = data[:,idx_IN_columns].astype(int) #transacoes contains all other columns
-y = data[:,idx_OUT_columns].astype(bool).ravel() # array_fl_fraude contains only 0 (transaction ok) and 1 (transaction is fraud) values
+# We want to extract column 14 FL_FRAUDE to y array
+idx_y_colum = [14] 
+
+# We want all columns except 14 to be in X array
+idx_X_columns = [i for i in xrange(np.shape(data)[1]) if i not in idx_y_colum] 
+
+# Transaction values
+X = data[:,idx_X_columns].astype(int) 
+
+# FLG_FRAUD contains only 0 (non-fraud transaction) or 1 (fraud transaction) values. ravel() transforms 2dimensions to 1dimension
+y = data[:,idx_y_colum].astype(int).ravel() 
+
+print "Transaction data + Flag Fraud (15 columns)"
+print "type(data):", type(data)
+print "type(data[0][0]):", type(data[0][0])
+print "data.shape:", data.shape
+print
+print "Only Transaction data (14 columns)"
 print "type(X):", type(X)
 print "type(X[0][0]):", type(X[0][0])
 print "X.shape:", X.shape
 print
+print "Only Flag Fraud data (1 column, the last one)"
 print "type(y):", type(y)
 print "type(y[0]):", type(y[0])
 print "y.shape:", y.shape
 print
 
-#print X[1646][0], ",", X[1646][1], ",", X[1646][2], ",", X[1646][3], ",", X[1646][4], ",", X[1646][5], ",", X[1646][6], ",", X[1646][7], ",", X[1646][8], ",", X[1646][9], ",", X[1646][10], ",", X[1646][11], ",", X[1646][12], ",", X[1646][13], "->", y[1646]
-#print X[1645][0], ",", X[1645][1], ",", X[1645][2], ",", X[1645][3], ",", X[1645][4], ",", X[1645][5], ",", X[1645][6], ",", X[1645][7], ",", X[1645][8], ",", X[1645][9], ",", X[1645][10], ",", X[1645][11], ",", X[1645][12], ",", X[1645][13], "->", y[1645]
-#print
-    
 # Instanciate a PCA object for the sake of easy visualisation
 pca = PCA(n_components=2)
 
 # Fit and transform x to visualise inside a 2D feature space
-## X_vis = pca.fit_transform(X)
+X_vis = pca.fit_transform(X)
 
-# Apply the random over-sampling
+# Apply the random over-sampling method ADASYN
 ada = ADASYN()
-
 t0 = time()
 X_resampled, y_resampled = ada.fit_sample(X, y)
-print "tempo de resampling [ada.fit_sample(X, y)]:", round(time()-t0, 3), "s"
+print "resampling task [ada.fit_sample(X, y)] took:", round(time()-t0, 3), "s"
+print
 
-## X_res_vis = pca.transform(X_resampled)
+# X_resampled returns as float type. Transforming to int type
+X_resampled = X_resampled.astype(int)
 
+X_res_vis = pca.transform(X_resampled)
+
+print "Only Transaction data (14 columns) oversampled"
+print "type(X_resampled):", type(X_resampled)
+print "type(X_resampled[0][0]):", type(X_resampled[0][0])
 print "X_resampled.shape:", X_resampled.shape
+print
+print "Only Flag Fraud data (1 column) oversampled"
+print "type(y_resampled):", type(y_resampled)
+print "type(y_resampled[0]):", type(y_resampled[0])
 print "y_resampled.shape:", y_resampled.shape
 print
 
-numpy.savetxt("resampled.csv", a, delimiter=";")
+# transforms y_resampled as vector to [][] and append to 14 column 2d numpy transaction data
+resampled_data = np.append(X_resampled, y_resampled[:, None], 1) 
+print "Transaction data + Flag Fraud (15 columns) oversampled"
+print "type(resampled_data):", type(resampled_data)
+print "type(resampled_data[0][0]):", type(resampled_data[0][0])
+print "resampled_data.shape:", resampled_data.shape
+print
 
-#for i in range(0, X_resampled.shape[0]):
-#    print "(",i,") ", str(X_resampled[i][0]),",",str(X_resampled[i][1]),",",str(X_resampled[i][2]),",",str(X_resampled[i][3]),",",str(X_resampled[i][4]),"->",str(y_resampled[i])
+# Save to file overriding float mode to string, delimiting with ; character like the original file
+np.savetxt("transactions_resampled.csv", resampled_data, delimiter=";", fmt="%s")
+
+# Print all values for debug
+print "------Original------"
+for i in range(0, X.shape[0]):
+    print "(",i,") ", str(X[i][0]),",",str(X[i][1]),",",str(X[i][2]),",",str(X[i][3]),",",str(X[i][4]),",",str(X[i][5]),",",str(X[i][6]),",",str(X[i][7]),",",str(X[i][8]),",",str(X[i][9]),",",str(X[i][10]),",",str(X[i][11]),",",str(X[i][12]),",",str(X[i][13]),"->",str(y[i])
+print "------Original------"
+print "------Resampled------"
+for i in range(0, X_resampled.shape[0]):
+    print "(",i,") ", str(X_resampled[i][0]),",",str(X_resampled[i][1]),",",str(X_resampled[i][2]),",",str(X_resampled[i][3]),",",str(X_resampled[i][4]),",",str(X_resampled[i][5]),",",str(X_resampled[i][6]),",",str(X_resampled[i][7]),",",str(X_resampled[i][8]),",",str(X_resampled[i][9]),",",str(X_resampled[i][10]),",",str(X_resampled[i][11]),",",str(X_resampled[i][12]),",",str(X_resampled[i][13]),"->",str(y_resampled[i])
+print "------Resampled------"
 
 # Two subplots, unpack the axes array immediately
-## f, (ax1, ax2) = plt.subplots(1, 2)
+f, (ax1, ax2) = plt.subplots(1, 2)
 
-## c0 = ax1.scatter(X_vis[y == 0, 0], X_vis[y == 0, 1], label="Class #0", alpha=0.5)
-## c1 = ax1.scatter(X_vis[y == 1, 0], X_vis[y == 1, 1], label="Class #1", alpha=0.5)
-## ax1.set_title('Original')
-## ax2.scatter(X_res_vis[y_resampled == 0, 0], X_res_vis[y_resampled == 0, 1], label="Class #0", alpha=0.5)
-## ax2.scatter(X_res_vis[y_resampled == 1, 0], X_res_vis[y_resampled == 1, 1], label="Class #1", alpha=0.5)
+c0 = ax1.scatter(X_vis[y == 0, 0], X_vis[y == 0, 1], label="Fraude", alpha=0.5)
+c1 = ax1.scatter(X_vis[y == 1, 0], X_vis[y == 1, 1], label="Nao-fraude", alpha=0.5)
+ax1.set_title('Original')
+ax2.scatter(X_res_vis[y_resampled == 0, 0], X_res_vis[y_resampled == 0, 1], label="Fraude", alpha=0.5)
+ax2.scatter(X_res_vis[y_resampled == 1, 0], X_res_vis[y_resampled == 1, 1], label="Nao-fraude", alpha=0.5)
+
 #second axe
-## ax2.set_title('ADASYN oversampling')
+ax2.set_title('ADASYN oversampling')
 
-# make nice plotting
-## for ax in (ax1, ax2):
-##     ax.spines['top'].set_visible(False)
-##     ax.spines['right'].set_visible(False)
-##     ax.get_xaxis().tick_bottom()
-##     ax.get_yaxis().tick_left()
-##     ax.spines['left'].set_position(('outward', 10))
-##     ax.spines['bottom'].set_position(('outward', 10))
-##     ax.set_xlim([-6, 8])
-##     ax.set_ylim([-6, 6])
-## 
-## plt.figlegend((c0, c1), ('Fraude', 'Nao-fraude'), loc='lower center', ncol=2, labelspacing=0.0)
-## plt.tight_layout(pad=3)
-## plt.show()
+# plotting
+for ax in (ax1, ax2):
+	print ax
+	ax.spines['top'].set_visible(False)
+	ax.spines['right'].set_visible(False)
+	ax.get_xaxis().tick_bottom()
+	ax.get_yaxis().tick_left()
+	ax.spines['left'].set_position(('outward', 10))
+	ax.spines['bottom'].set_position(('outward', 10))
+	ax.set_xlim([-6, 8])
+	ax.set_ylim([-6, 6])
+
+plt.figlegend((c0, c1), ('Fraude', 'Nao-fraude'), loc='lower center', ncol=2, labelspacing=0.0)
+plt.tight_layout(pad=3)
+plt.show()

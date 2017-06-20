@@ -1,3 +1,5 @@
+http://jefflirion.github.io/udacity/
+
 Supervised Classification Problem
 	Um monte de exemplos e você sabe a resposta certa para esses exemplos, mostrando ao carro qual o comportamento correto. Assim como se aprende a dirigir (pela observação). Dê um monte de exemplos e ele vai descobrir por conta o que está acontecendo. No deserto, se você correr muito corre o risco de capotar o carro. Dirigindo lentamente, o carro aprendeu a pegar o comportamento com milhares de quilometros de treino.
 	
@@ -323,7 +325,7 @@ There's a single decision of who's the president going to be, and there are many
 that answer should be. So what you have to do is you ask the question of many different people and all together you come up with a 
 single answer.
 
-choose_your_own/your_algorithm.py 
+choose_your_own/*.py 
 
 [Process]
 1 - do some research, get a general understanding
@@ -332,6 +334,8 @@ choose_your_own/your_algorithm.py
 4 - use it to make predictions 
 5 - evaluate it. what's the accuracy?
 
+************************************************************************************
+Datasets and Questions
+************************************************************************************
 
-
-
+Enron dataset. A person of interest
