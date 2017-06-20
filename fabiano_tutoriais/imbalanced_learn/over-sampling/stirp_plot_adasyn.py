@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import numpy as np
 from imblearn.over_sampling import ADASYN
+from time import time
 
 print(__doc__)
 
@@ -81,12 +82,17 @@ pca = PCA(n_components=2)
 # Apply the random over-sampling
 ada = ADASYN()
 
+t0 = time()
 X_resampled, y_resampled = ada.fit_sample(X, y)
+print "tempo de resampling [ada.fit_sample(X, y)]:", round(time()-t0, 3), "s"
+
 ## X_res_vis = pca.transform(X_resampled)
 
 print "X_resampled.shape:", X_resampled.shape
 print "y_resampled.shape:", y_resampled.shape
 print
+
+numpy.savetxt("resampled.csv", a, delimiter=";")
 
 #for i in range(0, X_resampled.shape[0]):
 #    print "(",i,") ", str(X_resampled[i][0]),",",str(X_resampled[i][1]),",",str(X_resampled[i][2]),",",str(X_resampled[i][3]),",",str(X_resampled[i][4]),"->",str(y_resampled[i])
