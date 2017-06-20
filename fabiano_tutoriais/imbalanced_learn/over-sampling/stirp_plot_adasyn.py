@@ -13,16 +13,26 @@ import numpy as np
 from sklearn.decomposition import PCA
 from imblearn.over_sampling import ADASYN
 from time import time
-
-csv_file = 'TB_CORRELATION_ANALYSIS_CREDSYSTEM'
+from datetime import datetime
 
 print(__doc__)
+output_text_file.write(__doc__)
+
+date_time_str = datetime.now().strftime("%Y%m%d%H%M%S")
+input_csv_file_name = 'TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv'
+txt_file_name = "txt_file_name_" + date_time_str + ".txt"
+output_csv_file_name = "transactions_resampled_" + date_time_str + ".csv"
+output_text_file = open(txt_file_name,"w") 
 
 # Load transactions from csv file. Skipping first row (header data)
-print "loading csv [", csv_file, "] task started..."
-t_load_tart = time()
-data = np.loadtxt('TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv', delimiter=';',skiprows=1, dtype="int")
-print "loading csv [", csv_file, "] task took:", round(time()-t_load_tart, 3), "s"
+print "loading csv [", input_csv_file_name, "] task started..."
+output_text_file.write("loading csv [" + input_csv_file_name + "] task started...")
+
+t_load_start = time()
+data = np.loadtxt(input_csv_file_name, delimiter=';',skiprows=1500000, dtype="int")
+t_load_end = round(time()-t_load_start, 3)
+print "loading csv [", input_csv_file_name, "] task took:", t_load_end, "s"
+output_text_file.write("loading csv [" + input_csv_file_name + "] task took:" + t_load_end + "s")
 print
 
 # We want to extract column 14 FL_FRAUDE to y array
@@ -35,19 +45,31 @@ X = data[:,idx_X_columns].astype(int)
 y = data[:,idx_y_colum].astype(int).ravel() 
 
 print "Transaction data + Flag Fraud (15 columns)"
+output_text_file.write("Transaction data + Flag Fraud (15 columns)")
 print "type(data):", type(data)
+output_text_file.write("type(data):" + type(data))
 print "type(data[0][0]):", type(data[0][0])
+output_text_file.write("type(data[0][0]):" + type(data[0][0]))
 print "data.shape:", data.shape
+output_text_file.write("data.shape:" + data.shape)
 print
 print "Only Transaction data (14 columns)"
+output_text_file.write("type(X):" + type(X))
 print "type(X):", type(X)
+output_text_file.write("type(X):" + type(X))
 print "type(X[0][0]):", type(X[0][0])
+output_text_file.write("type(X[0][0]):" + type(X[0][0]))
 print "X.shape:", X.shape
+output_text_file.write("X.shape:" + X.shape)
 print
 print "Only Flag Fraud data (1 column, the last one)"
+output_text_file.write("Only Flag Fraud data (1 column, the last one)")
 print "type(y):", type(y)
+output_text_file.write("type(y):" + type(y))
 print "type(y[0]):", type(y[0])
+output_text_file.write("type(y[0]):" + type(y[0]))
 print "y.shape:", y.shape
+output_text_file.write("y.shape:" + y.shape)
 print
 
 # Instanciate a PCA object for the sake of easy visualisation
@@ -60,9 +82,12 @@ X_vis = pca.fit_transform(X)
 ada = ADASYN()
 
 print "ADASYN resampling task started..."
+output_text_file.write("ADASYN resampling task started...")
 t_resampling_start = time()
 X_resampled, y_resampled = ada.fit_sample(X, y)
-print "ADASYN resampling task took:", round(time()-t_resampling_start, 3), "s"
+t_resampling_end = round(time()-t_resampling_start, 3)
+print "ADASYN resampling task took:", t_resampling_end, "s"
+output_text_file.write("ADASYN resampling task took:" + t_resampling_end + "s")
 print
 
 # X_resampled returns as float type. Transforming to int type
@@ -71,41 +96,58 @@ X_resampled = X_resampled.astype(int)
 X_res_vis = pca.transform(X_resampled)
 
 print "Only Transaction data (14 columns) oversampled"
+output_text_file.write("Only Transaction data (14 columns) oversampled")
 print "type(X_resampled):", type(X_resampled)
+output_text_file.write("type(X_resampled):" + type(X_resampled))
 print "type(X_resampled[0][0]):", type(X_resampled[0][0])
+output_text_file.write("type(X_resampled[0][0]):" + type(X_resampled[0][0]))
 print "X_resampled.shape:", X_resampled.shape
+output_text_file.write("X_resampled.shape:" + X_resampled.shape)
 print
 print "Only Flag Fraud data (1 column) oversampled"
+output_text_file.write("Only Flag Fraud data (1 column) oversampled")
 print "type(y_resampled):", type(y_resampled)
+output_text_file.write("type(y_resampled):" + type(y_resampled))
 print "type(y_resampled[0]):", type(y_resampled[0])
+output_text_file.write("type(y_resampled[0]):" + type(y_resampled[0]))
 print "y_resampled.shape:", y_resampled.shape
+output_text_file.write("y_resampled.shape:" + y_resampled.shape)
 print
 
 # transforms y_resampled as vector to [][] and append to 14 column 2d numpy transaction data
 resampled_data = np.append(X_resampled, y_resampled[:, None], 1) 
 
 print "Transaction data + Flag Fraud (15 columns) oversampled"
+output_text_file.write("Transaction data + Flag Fraud (15 columns) oversampled")
 print "type(resampled_data):", type(resampled_data)
+output_text_file.write("type(resampled_data):" + type(resampled_data))
 print "type(resampled_data[0][0]):", type(resampled_data[0][0])
+output_text_file.write("type(resampled_data[0][0]):" + type(resampled_data[0][0]))
 print "resampled_data.shape:", resampled_data.shape
+output_text_file.write("resampled_data.shape:" + resampled_data.shape)
 print
 
 # Save to file overriding float output type to string, delimiting with ; character like the original file
-print "saving output resampled data task..."
+print "Saving output resampled data task..."
+output_text_file.write("Saving output resampled data task...")
 t_save_start = time()
-np.savetxt("transactions_resampled.csv", resampled_data, delimiter=";", fmt="%s")
-print "saving output resampled data task took:", round(time()-t_save_start, 3), "s"
+np.savetxt(output_csv_file_name, resampled_data, delimiter=";", fmt="%s")
+t_save_end = round(time()-t_save_start, 3)
+print "Saving output resampled data task took:", t_save_end, "s"
+output_text_file.write("Saving output resampled data task took:" + t_save_end + "s")
 print
 
+output_text_file.close()
+
 # Print all values for debug
-print "------Original------"
-for i in range(0, X.shape[0]):
-    print "(",i,") ", str(X[i][0]),",",str(X[i][1]),",",str(X[i][2]),",",str(X[i][3]),",",str(X[i][4]),",",str(X[i][5]),",",str(X[i][6]),",",str(X[i][7]),",",str(X[i][8]),",",str(X[i][9]),",",str(X[i][10]),",",str(X[i][11]),",",str(X[i][12]),",",str(X[i][13]),"->",str(y[i])
-print "------Original------"
-print "------Resampled------"
-for i in range(0, X_resampled.shape[0]):
-    print "(",i,") ", str(X_resampled[i][0]),",",str(X_resampled[i][1]),",",str(X_resampled[i][2]),",",str(X_resampled[i][3]),",",str(X_resampled[i][4]),",",str(X_resampled[i][5]),",",str(X_resampled[i][6]),",",str(X_resampled[i][7]),",",str(X_resampled[i][8]),",",str(X_resampled[i][9]),",",str(X_resampled[i][10]),",",str(X_resampled[i][11]),",",str(X_resampled[i][12]),",",str(X_resampled[i][13]),"->",str(y_resampled[i])
-print "------Resampled------"
+#print "------Original------"
+#for i in range(0, X.shape[0]):
+#    print "(",i,") ", str(X[i][0]),",",str(X[i][1]),",",str(X[i][2]),",",str(X[i][3]),",",str(X[i][4]),",",str(X[i][5]),",",str(X[i][6]),",",str(X[i][7]),",",str(X[i][8]),",",str(X[i][9]),",",str(X[i][10]),",",str(X[i][11]),",",str(X[i][12]),",",str(X[i][13]),"->",str(y[i])
+#print "------Original------"
+#print "------Resampled------"
+#for i in range(0, X_resampled.shape[0]):
+#    print "(",i,") ", str(X_resampled[i][0]),",",str(X_resampled[i][1]),",",str(X_resampled[i][2]),",",str(X_resampled[i][3]),",",str(X_resampled[i][4]),",",str(X_resampled[i][5]),",",str(X_resampled[i][6]),",",str(X_resampled[i][7]),",",str(X_resampled[i][8]),",",str(X_resampled[i][9]),",",str(X_resampled[i][10]),",",str(X_resampled[i][11]),",",str(X_resampled[i][12]),",",str(X_resampled[i][13]),"->",str(y_resampled[i])
+#print "------Resampled------"
 
 # Two subplots, unpack the axes array immediately
 f, (ax1, ax2) = plt.subplots(1, 2)
