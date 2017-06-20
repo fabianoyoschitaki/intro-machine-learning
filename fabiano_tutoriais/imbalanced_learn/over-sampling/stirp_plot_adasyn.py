@@ -14,20 +14,23 @@ from sklearn.decomposition import PCA
 from imblearn.over_sampling import ADASYN
 from time import time
 
+csv_file = 'TB_CORRELATION_ANALYSIS_CREDSYSTEM'
+
 print(__doc__)
 
 # Load transactions from csv file. Skipping first row (header data)
+print "loading csv [", csv_file, "] task started..."
+t_load_tart = time()
 data = np.loadtxt('TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv', delimiter=';',skiprows=1, dtype="int")
+print "loading csv [", csv_file, "] task took:", round(time()-t_load_tart, 3), "s"
+print
 
 # We want to extract column 14 FL_FRAUDE to y array
 idx_y_colum = [14] 
-
 # We want all columns except 14 to be in X array
 idx_X_columns = [i for i in xrange(np.shape(data)[1]) if i not in idx_y_colum] 
-
 # Transaction values
 X = data[:,idx_X_columns].astype(int) 
-
 # FLG_FRAUD contains only 0 (non-fraud transaction) or 1 (fraud transaction) values. ravel() transforms 2dimensions to 1dimension
 y = data[:,idx_y_colum].astype(int).ravel() 
 
@@ -55,9 +58,11 @@ X_vis = pca.fit_transform(X)
 
 # Apply the random over-sampling method ADASYN
 ada = ADASYN()
-t0 = time()
+
+print "ADASYN resampling task started..."
+t_resampling_start = time()
 X_resampled, y_resampled = ada.fit_sample(X, y)
-print "resampling task [ada.fit_sample(X, y)] took:", round(time()-t0, 3), "s"
+print "ADASYN resampling task took:", round(time()-t_resampling_start, 3), "s"
 print
 
 # X_resampled returns as float type. Transforming to int type
@@ -78,14 +83,19 @@ print
 
 # transforms y_resampled as vector to [][] and append to 14 column 2d numpy transaction data
 resampled_data = np.append(X_resampled, y_resampled[:, None], 1) 
+
 print "Transaction data + Flag Fraud (15 columns) oversampled"
 print "type(resampled_data):", type(resampled_data)
 print "type(resampled_data[0][0]):", type(resampled_data[0][0])
 print "resampled_data.shape:", resampled_data.shape
 print
 
-# Save to file overriding float mode to string, delimiting with ; character like the original file
+# Save to file overriding float output type to string, delimiting with ; character like the original file
+print "saving output resampled data task..."
+t_save_start = time()
 np.savetxt("transactions_resampled.csv", resampled_data, delimiter=";", fmt="%s")
+print "saving output resampled data task took:", round(time()-t_save_start, 3), "s"
+print
 
 # Print all values for debug
 print "------Original------"
