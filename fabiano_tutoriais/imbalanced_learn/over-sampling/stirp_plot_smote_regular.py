@@ -31,7 +31,7 @@ print "Loading csv [", input_csv_file_name, "] task started..."
 output_text_file.write("Loading csv [" + input_csv_file_name + "] task started...\n")
 
 t_load_start = time()
-data = np.loadtxt(input_csv_file_name, delimiter=';',skiprows=1520000, dtype="int")
+data = np.loadtxt(input_csv_file_name, delimiter=';',skiprows=1, dtype="int")
 t_load_end = round(time()-t_load_start, 3)
 print "Loading csv [", input_csv_file_name, "] task took:", t_load_end, "s"
 output_text_file.write("Loading csv [" + input_csv_file_name + "] task took:" + str(t_load_end) + "s\n\n")
@@ -86,7 +86,7 @@ smote = SMOTE(kind='regular')
 print "Regular SMOTE resampling task started..."
 output_text_file.write("Regular SMOTE resampling task started...\n")
 t_resampling_start = time()
-X_resampled, y_resampled = ada.fit_sample(X, y)
+X_resampled, y_resampled = smote.fit_sample(X, y)
 t_resampling_end = round(time()-t_resampling_start, 3)
 print "Regular SMOTE resampling task took:", t_resampling_end, "s"
 output_text_file.write("Regular SMOTE resampling task took:" + str(t_resampling_end) + "s\n\n")
@@ -140,19 +140,3 @@ output_text_file.write("Saving output resampled data task took:" + str(t_save_en
 print
 
 output_text_file.close()
-
-# Two subplots, unpack the axes array immediately
-f, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2)
-# Remove axis for second plot
-ax2.axis('off')
-ax_res = [ax3, ax4, ax5, ax6]
-
-c0, c1 = plot_resampling(ax1, X_vis, y, 'Original set')
-for i in range(len(kind)):
-    plot_resampling(ax_res[i], X_res_vis[i], y_resampled[i],
-                    'SMOTE {}'.format(kind[i]))
-
-ax2.legend((c0, c1), ('Class #0', 'Class #1'), loc='center',
-           ncol=1, labelspacing=0.)
-plt.tight_layout()
-plt.show()

@@ -49,16 +49,22 @@ pca = PCA(n_components=2)
 X_vis = pca.fit_transform(X)
 
 # Apply regular SMOTE
-kind = ['regular', 'borderline1', 'borderline2', 'svm']
-sm = [SMOTE(kind=k) for k in kind]
+method = SMOTE(kind='regular')
 X_resampled = []
 y_resampled = []
 X_res_vis = []
-for method in sm:
-    X_res, y_res = method.fit_sample(X, y)
-    X_resampled.append(X_res)
-    y_resampled.append(y_res)
-    X_res_vis.append(pca.transform(X_res))
+
+print type(X)
+print X.shape
+print
+print type(y)
+print y.shape
+
+X_res, y_res = method.fit_sample(X, y)
+
+X_resampled.append(X_res)
+y_resampled.append(y_res)
+X_res_vis.append(pca.transform(X_res))
 
 # Two subplots, unpack the axes array immediately
 f, ((ax1, ax2), (ax3, ax4), (ax5, ax6)) = plt.subplots(3, 2)
@@ -67,9 +73,6 @@ ax2.axis('off')
 ax_res = [ax3, ax4, ax5, ax6]
 
 c0, c1 = plot_resampling(ax1, X_vis, y, 'Original set')
-for i in range(len(kind)):
-    plot_resampling(ax_res[i], X_res_vis[i], y_resampled[i],
-                    'SMOTE {}'.format(kind[i]))
 
 ax2.legend((c0, c1), ('Class #0', 'Class #1'), loc='center',
            ncol=1, labelspacing=0.)
