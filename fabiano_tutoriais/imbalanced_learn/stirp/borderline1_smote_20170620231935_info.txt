@@ -1,0 +1,48 @@
+
+=========================================================================
+Borderline1 SMOTE Over-sampling Method applied to real financial transactions
+=========================================================================
+An illustration of the Borderline1 SMOTE  method applied 
+to real financial transactions for STIRP project
+Starting...
+
+Loading csv [TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv] task started...
+Loading csv [TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv] task took:27.014s
+
+Transaction data + Flag Fraud (15 columns)
+type(data):<type 'numpy.ndarray'>
+type(data[0][0]):<type 'numpy.int32'>
+data.shape:(1525857L, 15L)
+
+Only Transaction data (14 columns)
+type(X):<type 'numpy.ndarray'>
+type(X[0][0]):<type 'numpy.int32'>
+X.shape:(1525857L, 14L)
+
+Only Flag Fraud data (1 column, the last one)
+type(y):<type 'numpy.ndarray'>
+type(y[0]):<type 'numpy.int32'>
+y.shape:(1525857L,)
+
+Borderline1 SMOTE resampling task started...
+Borderline1 SMOTE resampling task took:21.951s
+
+Only Transaction data (14 columns) oversampled
+type(X_resampled):<type 'numpy.ndarray'>
+type(X_resampled[0][0]):<type 'numpy.int32'>
+X_resampled.shape:(3050176L, 14L)
+
+Only Flag Fraud data (1 column) oversampled
+type(y_resampled):<type 'numpy.ndarray'>
+type(y_resampled[0]):<type 'numpy.int32'>
+y_resampled.shape:(3050176L,)
+
+Transaction data + Flag Fraud (15 columns) oversampled
+type(resampled_data):<type 'numpy.ndarray'>
+type(resampled_data[0][0]):<type 'numpy.int32'>
+resampled_data.shape:(3050176L, 15L)
+
+Saving output resampled data task...
+Saving output resampled data task took:60.541s
+
+Success
