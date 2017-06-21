@@ -1,9 +1,9 @@
 """
-==================================================================
-ADASYN Over-sampling Method applied to real financial transactions
-==================================================================
-An illustration of the Adaptive Synthetic Sampling Approach for Imbalanced
-Learning ADASYN method applied to real financial transactions for STIRP project
+=========================================================================
+Borderline1 SMOTE Over-sampling Method applied to real financial transactions
+=========================================================================
+An illustration of the Borderline1 SMOTE  method applied 
+to real financial transactions for STIRP project
 """
 
 # Authors: Fabiano Yoschitaki <fabianoyoschitaki@gmail.com>
@@ -11,7 +11,7 @@ Learning ADASYN method applied to real financial transactions for STIRP project
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.decomposition import PCA
-from imblearn.over_sampling import ADASYN
+from imblearn.over_sampling import SMOTE
 from time import time
 from datetime import datetime
 
@@ -19,8 +19,8 @@ print(__doc__)
 
 date_time_str = datetime.now().strftime("%Y%m%d%H%M%S")
 input_csv_file_name = 'TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv'
-txt_file_name = "resampling_adasyn_" + date_time_str + ".txt"
-output_csv_file_name = "adasyn_transactions_resampled_" + date_time_str + ".csv"
+txt_file_name = "resampling_borderline1_smote_" + date_time_str + ".txt"
+output_csv_file_name = "borderline1_smote_transactions_resampled_" + date_time_str + ".csv"
 output_text_file = open(txt_file_name,"w") 
 output_text_file.write(__doc__)
 
@@ -80,16 +80,16 @@ pca = PCA(n_components=2)
 # Fit and transform x to visualise inside a 2D feature space
 X_vis = pca.fit_transform(X)
 
-# Apply the random over-sampling method ADASYN
-ada = ADASYN()
+# Apply borderline1 SMOTE
+smote = SMOTE(kind='borderline1')
 
-print "ADASYN resampling task started..."
-output_text_file.write("ADASYN resampling task started...\n")
+print "Borderline1 SMOTE resampling task started..."
+output_text_file.write("Borderline1 SMOTE resampling task started...\n")
 t_resampling_start = time()
-X_resampled, y_resampled = ada.fit_sample(X, y)
+X_resampled, y_resampled = smote.fit_sample(X, y)
 t_resampling_end = round(time()-t_resampling_start, 3)
-print "ADASYN resampling task took:", t_resampling_end, "s"
-output_text_file.write("ADASYN resampling task took:" + str(t_resampling_end) + "s\n\n")
+print "Borderline1 SMOTE resampling task took:", t_resampling_end, "s"
+output_text_file.write("Borderline1 SMOTE resampling task took:" + str(t_resampling_end) + "s\n\n")
 print
 
 # X_resampled returns as float type. Transforming to int type
@@ -140,41 +140,3 @@ output_text_file.write("Saving output resampled data task took:" + str(t_save_en
 print
 
 output_text_file.close()
-
-# Print all values for debug
-#print "------Original------"
-#for i in range(0, X.shape[0]):
-#    print "(",i,") ", str(X[i][0]),",",str(X[i][1]),",",str(X[i][2]),",",str(X[i][3]),",",str(X[i][4]),",",str(X[i][5]),",",str(X[i][6]),",",str(X[i][7]),",",str(X[i][8]),",",str(X[i][9]),",",str(X[i][10]),",",str(X[i][11]),",",str(X[i][12]),",",str(X[i][13]),"->",str(y[i])
-#print "------Original------"
-#print "------Resampled------"
-#for i in range(0, X_resampled.shape[0]):
-#    print "(",i,") ", str(X_resampled[i][0]),",",str(X_resampled[i][1]),",",str(X_resampled[i][2]),",",str(X_resampled[i][3]),",",str(X_resampled[i][4]),",",str(X_resampled[i][5]),",",str(X_resampled[i][6]),",",str(X_resampled[i][7]),",",str(X_resampled[i][8]),",",str(X_resampled[i][9]),",",str(X_resampled[i][10]),",",str(X_resampled[i][11]),",",str(X_resampled[i][12]),",",str(X_resampled[i][13]),"->",str(y_resampled[i])
-#print "------Resampled------"
-
-# Two subplots, unpack the axes array immediately
-f, (ax1, ax2) = plt.subplots(1, 2)
-
-c0 = ax1.scatter(X_vis[y == 0, 0], X_vis[y == 0, 1], label="Fraude", alpha=0.5)
-c1 = ax1.scatter(X_vis[y == 1, 0], X_vis[y == 1, 1], label="Nao-fraude", alpha=0.5)
-ax1.set_title('Original')
-ax2.scatter(X_res_vis[y_resampled == 0, 0], X_res_vis[y_resampled == 0, 1], label="Fraude", alpha=0.5)
-ax2.scatter(X_res_vis[y_resampled == 1, 0], X_res_vis[y_resampled == 1, 1], label="Nao-fraude", alpha=0.5)
-
-#second axe
-ax2.set_title('ADASYN oversampling')
-
-# plotting
-for ax in (ax1, ax2):
-	print ax
-	ax.spines['top'].set_visible(False)
-	ax.spines['right'].set_visible(False)
-	ax.get_xaxis().tick_bottom()
-	ax.get_yaxis().tick_left()
-	ax.spines['left'].set_position(('outward', 10))
-	ax.spines['bottom'].set_position(('outward', 10))
-	ax.set_xlim([-6, 8])
-	ax.set_ylim([-6, 6])
-
-plt.figlegend((c0, c1), ('Fraude', 'Nao-fraude'), loc='lower center', ncol=2, labelspacing=0.0)
-plt.tight_layout(pad=3)
-plt.show()
