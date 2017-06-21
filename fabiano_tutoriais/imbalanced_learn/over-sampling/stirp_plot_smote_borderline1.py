@@ -19,8 +19,8 @@ print(__doc__)
 
 date_time_str = datetime.now().strftime("%Y%m%d%H%M%S")
 input_csv_file_name = 'TB_CORRELATION_ANALYSIS_CREDSYSTEM.csv'
-txt_file_name = "resampling_borderline1_smote_" + date_time_str + ".txt"
-output_csv_file_name = "borderline1_smote_transactions_resampled_" + date_time_str + ".csv"
+txt_file_name = "borderline1_smote_" + date_time_str + "_info.txt"
+output_csv_file_name = "borderline1_smote_" + date_time_str + "_resampled.csv"
 output_text_file = open(txt_file_name,"w") 
 output_text_file.write(__doc__)
 
