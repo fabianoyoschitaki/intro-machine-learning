@@ -1,0 +1,50 @@
+https://www.youtube.com/watch?v=cSKfRcEDGUs
+
+Monet or Picasso? In this episode, we’ll train our own image classifier, using TensorFlow for Poets. Along the way, I’ll introduce Deep Learning, and add context and background on why the classifier works so well. Here are links to learn more, thanks for watching, and have fun! 
+
+TensorFlow for Poets Codelab: https://goo.gl/QTwZ3v
+
+Google’s Udacity class on Deep Learning: https://goo.gl/iRqXsy
+
+TensorFlow tutorial: https://goo.gl/0Oz7B5
+
+Google Research blog on Inception: https://goo.gl/CSrfJ1
+
+You can follow me on Twitter at https://twitter.com/random_forests for updates on episodes, and of course - Google Developers.
+
+--------------------------------------------------------
+
+Train from bunch of images. Work with a code lab called TensorFlow for Poets. Learning and working with image classification.
+
+To train TF only provide training data (images), create a classifier to tell the difference between flowers. Create a directory with a type of flower. We need about 100 images in each directory to start.
+
+To train, we'll use TF, which is an open source machine learning library and is especially useful for working with a branch of machine learning called deep learning. Deep learning has led to gret results in the last couple years, especially in domains like image classification, which we'll be working with today.
+
+With deep learning, you don't need to extract features manually (no feature engineering needed), instead you can use the raw pixels of the image's features and the classifier will do the rest
+
+File	|	Label
+a.png	|	Rose
+b.png	|	Tulip
+c.png	|	Rose
+
+The classifier we'll be using is called a neural network. At a high level it's just another type of classifier, like the nearest neighbor one wrote last time. The difference is neural network can learn more complex functions. In this code lab TF for Poets takes care of setting up and training the neural network for you behind the scenes. That doesn't mean that TF code is any harder to write than we've seen so far.
+
+	o------>       o ------------>  o ------------>o
+	 ------>       o ------------>
+	input		Hidden Layer	Hidden Layer	Output
+
+In fat my favorite way of writing TF programs is by using TF Learn (formerly SK Flow), and TF learn is a high level machine learning library on top of TF and its syntax is similar to scikit-learn.
+
+TF for Poets isn't actually training a classifier from scratch, instead it's starting with an existing classifier called Inception. Inception is one of Google's best image classifiers and it's open source. Whereas we have just a couple thousand images in our training data, Inception was trained on 1.2 million images from 1.000 different categories. Training Inception took about two weeks on a fast desktop with eight GPUs. In TF for Poets we'll begin with Inception and then use a technique called RETRAINING, also knows as TRANSFER LEARNING, to adjust it to work with our images, this lets us re-use some of the parameters Inception has previously learned so we can create a new high accuracy classifier with far less training data (saves a lot of time and leverages prior work)
+
+To train a good image classifier, the name of the game is diversity (more different types of roses, the better off we'll be. Red, white and yellow roses. We also have pictures taken at different angles, say, from above or to the side, foreground and background) and quantity.
+
+
+
+
+
+
+
+
+
+
