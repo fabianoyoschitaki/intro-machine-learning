@@ -1,5 +1,7 @@
 https://www.youtube.com/watch?v=cSKfRcEDGUs
-
+================================================
+Train an Image Classifier with TensorFlow for Poets - Machine Learning Recipes #6
+================================================
 Monet or Picasso? In this episode, we’ll train our own image classifier, using TensorFlow for Poets. Along the way, I’ll introduce Deep Learning, and add context and background on why the classifier works so well. Here are links to learn more, thanks for watching, and have fun! 
 
 TensorFlow for Poets Codelab: https://goo.gl/QTwZ3v
@@ -39,12 +41,37 @@ TF for Poets isn't actually training a classifier from scratch, instead it's sta
 
 To train a good image classifier, the name of the game is diversity (more different types of roses, the better off we'll be. Red, white and yellow roses. We also have pictures taken at different angles, say, from above or to the side, foreground and background) and quantity.
 
+================================================
+Classifying Handwritten Digits with TF.Learn - Machine Learning Recipes #7
+================================================
 
+Last time we wrote an image classifier using TensorFlow for Poets. This time, we'll write a basic one using TF.Learn. To make it easier for you to try this out, I wrote a Jupyter Notebook for this episode -- https://goo.gl/NNlMNu -- and I'll start with a quick screencast of installing TensorFlow using Docker, and serving the notebook. This is a great way to get all the dependencies installed and properly configured. I've linked some additional notebooks below you can try out, too. Next, I'll start introducing a linear classifier. My goal here is just to get us started. I'd like to spend a lot more time on this next episode, if there's interest? I have a couple alternate ways of introducing them that I think would be helpful (and I put some exceptional links below for you to check out to learn more, esp. Colah's blog and CS231n - wow!). Finally, I'll show you how to reproduce those nifty images of weights from TensorFlow.org's Basic MNIST's tutorial.
 
+Jupyter Notebook: https://goo.gl/NNlMNu
 
+Docker images: https://goo.gl/8fmqVW
 
+MNIST tutorial: https://goo.gl/GQ3t7n
 
+Visualizing MNIST: http://goo.gl/ROcwpR (this blog is outstanding)
 
+More notebooks: https://goo.gl/GgLIh7
 
+More about linear classifiers: https://goo.gl/u2f2NE
 
+Much more about linear classifiers: http://goo.gl/au1PdG (this course is outstanding, highly recommended)
 
+More TF.Learn examples: https://goo.gl/szki63
+
+Thanks for watching, and have fun! For updates on new episodes, you can find me on Twitter at www.twitter.com/random_forests
+--------------------------------------------------------
+
+This time, we'll write one classifier using TF.Learn. The problem we'll start on today is classifying handwritten digits from the MNIST dataset, and writing a simple classifier for these is often considered the Hello World of computer vision. MNIST is a multi-class classification problem. Given an image of a digit, our job will be to predict which one it is. I wrote an IPython notebook for this episode and you can find a link to it in the description (Jupyter Notebook: https://goo.gl/NNlMNu) and to make it easier for you to configure your environment, I'll start with a quick screencast of installing TF using Docker.
+
+1 - Installation
+	you can find installation instructions for Docker linked from the Getting Started page on TensorFlow.org, and I'll start this screencast assuming you've just finished downloading and installing.
+2 - Download dataset
+3 - Visualize images
+4 - Train a classifier
+5 - Evaluate it and use it to make predictions on new images
+6 - Visualize weights the classifier learns to gain intuition for how it wotks under the hood
