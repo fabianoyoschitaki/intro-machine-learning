@@ -338,4 +338,12 @@ choose_your_own/*.py
 Datasets and Questions
 ************************************************************************************
 
-Enron dataset. A person of interest
+Enron dataset. https://www.technologyreview.com/s/515801/the-immortal-life-of-the-enron-e-mails/
+
+Types of data:
+	- numerical: numerical values (numbers) e.g. salary
+	- categorical: limite number of discrete values (category), class label, if is woman of man
+	- time series: temporal value (date, timestamp)
+	- text: words
+
+Open the starter code: datasets_questions/explore_enron_data.py
