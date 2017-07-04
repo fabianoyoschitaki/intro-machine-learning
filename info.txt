@@ -1,3 +1,7 @@
+************************************************************************************
+Welcome to Machine Learning
+************************************************************************************
+
 http://jefflirion.github.io/udacity/
 
 Supervised Classification Problem
@@ -347,3 +351,23 @@ Types of data:
 	- text: words
 
 Open the starter code: datasets_questions/explore_enron_data.py
+
+
+************************************************************************************
+Regression
+************************************************************************************
+
+Regression is [Continuous] supervised learning. 
+Before we had discrete output (binary, fast or slow etc) but in many learning problems, our output could be continues as well.
+For example, input a height of a person and get the weight as the output probably we'll get a function.
+
+Continuous is about the output. Because input was always continuous in the past examples.
+
+Continuous VS Discrete
+	Age -> Continuous
+	Weather (sunny, rainy) -> Discrete
+	Person who wrote e-mail -> Discrete (there's no order)
+	Phone number given the person -> Discrete (there's no order)
+	Income -> Continuous (because 10.000 is almost 9.999 and 20 is almost 19)
+	
+Continuous implies there's some sort of ordering to it. Linear order. 
