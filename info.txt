@@ -371,3 +371,16 @@ Continuous VS Discrete
 	Income -> Continuous (because 10.000 is almost 9.999 and 20 is almost 19)
 	
 Continuous implies there's some sort of ordering to it. Linear order. 
+
+For instance, calculating net worth given the age.
+Age 0 = 0 net worth
+Age 80 = 500 net worth
+So: net worth = 6.25 * age + 0
+
+net worth = TARGET VARIABLE, the one we're trying to predict, often called the OUTPUT.
+age = INPUT VARIABLE 
+6.25 = this fact is called the SLOPE
+0 = this number, which happens in this case to be zero, is called the INTERCEPT
+
+
+
