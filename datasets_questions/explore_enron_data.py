@@ -78,3 +78,18 @@ print "contEmailAddress:", contEmailAddress
 #A python dictionary can't be read directly into an sklearn classification or regression algorithm; instead, it needs a numpy array or a list of lists (each element of the list (itself a list) is a data point, and the elements of the smaller list are the features of that point).
 #We've written some helper functions (featureFormat() and targetFeatureSplit() in tools/feature_format.py) that can take a list of feature names and the data dictionary, and return a numpy array.
 #In the case when a feature does not have a value for a particular person, this function will also replace the feature value with 0 (zero).
+
+#What percentage of POIs in the dataset have "NaN" for their total payments?
+count_NaN_tp = 0
+for key in enron_data.keys():
+    if enron_data[key]['total_payments'] == 'NaN' and enron_data[key]['poi'] == True:
+        count_NaN_tp += 1
+print count_NaN_tp
+print len(enron_data.keys())
+print float(count_NaN_tp)/len(enron_data.keys())
+
+#Adicionando novos POIs neste exemplo, para aqueles que nós não temos informações de suas finanças, introduziu um pequeno problema: a falta de informações nos atributos financeiros serve de falso indicativo para classificadores que as pessoas em questão são POIs. Outro modo de encarar esta situação é que a geração dos dados das nossas duas classes: os não-POIs vieram da base de finanças, enquanto vários POIs foram adicionados manualmente em uma etapa posterior. Essa diferença nos faz achar que nós temos uma performance melhor do que nós realmente temos: suponha que você vai usar seu identificador de POIs para determinar se uma nova pessoa (até o momento desconhecida) é um POI, e que ela não está na planilha de finanças. Então, todos os dados financeiros conteriam valores "NaN", mas a pessoa é muito provavelmente um não-POI (pois nós temos mais não-POIs que POIs no mundo e até mesmo dentro da Enron), e ainda assim, seu modelo iria, acidentalmente, classificar a pessoa como um POI!
+
+#Como resumo, ao gerar ou aumentar um conjunto de dados, você deve ser excepcionalmente cuidado se seus dados são obtidos de diferentes fontes para diferentes classes. Isso pode facilmente enviesar seus dados ou possuir problemas como o demonstrado aqui. Existem formas de tratar isso, como por exemplo, você não teria que se preocupar caso você tivesse usado apenas dados de emails -- neste caso, discrepâncias nos dados financeiros seriam insignificantes pois estes atributos não seriam usados. Existem ainda formas mais sofisticadas de estimar o efeito destes viéses na resposta final de um classificador; mas estes estão fora do escopo deste curso.
+
+#Até o momento, a mensagem que queremos deixar é que você deve ser cuidadoso ao adicionar novos atributos que são provenientes de diferentes fontes dependendo de sua classe! Este é uma forma clássica de embutir viéses e erros nos seus dados.

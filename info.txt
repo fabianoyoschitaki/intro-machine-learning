@@ -1,3 +1,7 @@
+************************************************************************************
+Welcome to Machine Learning
+************************************************************************************
+
 http://jefflirion.github.io/udacity/
 
 Supervised Classification Problem
@@ -347,3 +351,68 @@ Types of data:
 	- text: words
 
 Open the starter code: datasets_questions/explore_enron_data.py
+
+
+************************************************************************************
+Regression
+************************************************************************************
+
+Regression is [Continuous] supervised learning. 
+Before we had discrete output (binary, fast or slow etc) but in many learning problems, our output could be continues as well.
+For example, input a height of a person and get the weight as the output probably we'll get a function.
+
+Continuous is about the output. Because input was always continuous in the past examples.
+
+Continuous VS Discrete
+	Age -> Continuous
+	Weather (sunny, rainy) -> Discrete
+	Person who wrote e-mail -> Discrete (there's no order)
+	Phone number given the person -> Discrete (there's no order)
+	Income -> Continuous (because 10.000 is almost 9.999 and 20 is almost 19)
+	
+Continuous implies there's some sort of ordering to it. Linear order. 
+
+For instance, calculating net worth given the age.
+Age 0 = 0 net worth
+Age 80 = 500 net worth
+So: net worth = 6.25 * age + 0
+
+net worth = TARGET VARIABLE, the one we're trying to predict, often called the OUTPUT.
+age = INPUT VARIABLE 
+6.25 = this fact is called the SLOPE (declive)
+0 = this number, which happens in this case to be zero, is called the INTERCEPT (interceptação)
+
+Coding with Katie: http://scikit-learn.org/stable/modules/linear_model.html
+
+Created a data set of net worths and ages and split it into training and testing sets, just like we do in supervised classification.
+regression/studentMain.py and regression/studentRegression.py
+
+python studentMain.py
+
+One way to evaluate regression is by evaluating the metric R squared. There's also the sum of the errors. 
+The higher the R squared is, the better, with a maximum value of 1. If there's an overfitting going on that'll show up in having a lower score when you look at your testing data. 
+So we can ask how good is our regression R-squared is by:
+
+print "\nr-squared score:", reg.score(ages_test, net_worths_test)
+0.812365729231
+
+If we ask it of our training dataset we'll also get some interesting information, but only by using the test dataset can we be sensitive to thinks like over-fitting.
+
+print "\nr-squared score:", reg.score(ages_train, net_worths_train)
+0.874588235822
+
+Exercise: regression/regressionQuiz.py e regression/ages_net_worths.py
+
+## Let's talk some more about the types of errors that you can have on regressions and how you can quantify them. 
+
+error = actual net worth of a particular person - predicted net worth by our regression line
+
+Example: age = 35, so predicted net worth is 6.25 * 35 = 218.75. Actual net worth is 200. The error for this point is -18.75. 
+Another way to think about that visually, is it's this distance between the line and the point. 
+
+
+
+
+
+
+
