@@ -424,5 +424,80 @@ On the other hand if the r squared is large, close to 1, what that means is your
 
 R SQUARED SCORE: regression/studentRegression.py, python studentMain
 
+0.857 is a good r squared. It's possible that there's still could be variables out there, for example, features that if we were able to incorporate the information from additional features we would be better able to predict a person's net worth. So in other words, if we were able to use more than one feature, sometimes we can push up this r squared even further. On the other hand, there are sometimes really complicated problems where it's almost impossible to get an r squared that would be anywhere near this high. So sometimes in Political Science for example they're trying to run a regression that will predict whether a country will go to war.
+
+What data makes a good linear regression? 
+
+Data that draws a line.
+
+GOOD (y = mx + 8 where m is 0)
+
+|     
+|     
+| xxxxxxxxxx
+|     
+|
+------------
+BAD (tricky, the problem is there's no variation in X axis. Many Y for 1 x.)
+
+|     x
+|     x
+|     x
+|     x
+|
+------------
+
+BAD (data all over the place, not a good candidate)
+
+|     x x x 
+|  x   x
+|     x  x
+|   x  x
+|
+------------
+
+BAD (almost good. but need 2 different lines to fit the pattern adequately)
+
+|         x
+| x      x
+|  x    x
+|   x  x
+|    x
+------------
+
+BAD (y = x^2) curve. not a example of linear
+
+|  xxxx   
+| x    x
+| x    x
+|x      x
+|x      x 
+------------
+
+[Comparing Classification and Regression]
+
+[PROPERTY]						[SUPERVISED CLASSIFICATION]				[REGRESSION]
+output type						discrete (class labels)					continuous (number)
+what are you trying to find?	decision boundary (assign class label)	"best fit line"
+evaluation						accuracy								"sum of squared error or r squared"
+
+You should think of regression as a different type of supervised learning, not as a completely new topic that you now have to learn from scratch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
