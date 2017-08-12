@@ -410,9 +410,17 @@ error = actual net worth of a particular person - predicted net worth by our reg
 Example: age = 35, so predicted net worth is 6.25 * 35 = 218.75. Actual net worth is 200. The error for this point is -18.75. 
 Another way to think about that visually, is it's this distance between the line and the point. 
 
+SSE - best regression is the one that minimizes the sum of squared errors.
+SUM of all training points(actual - predicted)^2. y = Mx + b, where M is the slope and b is the intercept. There are several algorithms that 
+help you to find this: 2 most populars are Ordinary Least Squares (OLS) used in sklearn LinearRegression and Gradient Descent.
 
+Problem with SSE is that the more datapoints you have, higher is SSE value, even though there's a good fit. 
+An evaluation that doesnt't have this shortcoming is called "R SQUARED" and is a very popular evaluation metric for describing the goodness of fit of a linear regression. And what r squared is, is it's a number that effectively answers the question: HOW MUCH OF MY CHANGE IN OUTPUT(Y) IS EXPLAINED BY THE CHANGE IN MY INPUT (X)?
 
+0.0 < R^2 < 1.0
 
+if the number is very small, that generally means that your regression line isn't doing a good job of capturing the trend in the data.
+On the other hand if the r squared is large, close to 1, what that means is your regression line is doing a good job of describing the relationship between your input, x variable, and your output, y variable. And remember that this is the whole point of performing a regression, is to come up with the mathematical formula that describes this relationship. So if your r squared is close to 1, it basically means your fit is doing a good job. The good thing about R SQUARED is that it's INDEPENDENT OF THE NUMBER OF TRAINING POINTS. So it will always be between 0 and 1. In general it's not affected by the number of points in your data set, being a little bit more reliable than a SUM OF SQUARED ERRORS, especially if the number of points in the data set could potentially be CHANGING.
 
 
 
