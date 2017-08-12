@@ -422,5 +422,7 @@ An evaluation that doesnt't have this shortcoming is called "R SQUARED" and is a
 if the number is very small, that generally means that your regression line isn't doing a good job of capturing the trend in the data.
 On the other hand if the r squared is large, close to 1, what that means is your regression line is doing a good job of describing the relationship between your input, x variable, and your output, y variable. And remember that this is the whole point of performing a regression, is to come up with the mathematical formula that describes this relationship. So if your r squared is close to 1, it basically means your fit is doing a good job. The good thing about R SQUARED is that it's INDEPENDENT OF THE NUMBER OF TRAINING POINTS. So it will always be between 0 and 1. In general it's not affected by the number of points in your data set, being a little bit more reliable than a SUM OF SQUARED ERRORS, especially if the number of points in the data set could potentially be CHANGING.
 
+R SQUARED SCORE: regression/studentRegression.py, python studentMain
+
 
 
