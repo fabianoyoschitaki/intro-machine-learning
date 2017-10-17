@@ -36,6 +36,17 @@ data_dict = pickle.load( open("../final_project/final_project_dataset.pkl", "r")
 ### there's an outlier--remove it! 
 data_dict.pop("TOTAL", 0)
 
+#Stock Option Range#
+import pandas as pd
+
+df = pd.DataFrame(data_dict)
+df.loc['exercised_stock_options',:] = pd.to_numeric(df.loc['exercised_stock_options',:], errors='coerce')
+print "maximum exercised_stock_options:" + str(df.loc['exercised_stock_options',:].max(skipna=True))
+print "minimum exercised_stock_options:" + str(df.loc['exercised_stock_options',:].min(skipna=True))
+
+df.loc['salary',:] = pd.to_numeric(df.loc['salary',:], errors='coerce')
+print "maximum salary:" + str(df.loc['salary',:].max(skipna=True))
+print "minimum salary:" + str(df.loc['salary',:].min(skipna=True))
 
 ### the input features we want to use 
 ### can be any key in the person-level dictionary (salary, director_fees, etc.) 
