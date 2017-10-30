@@ -79,3 +79,15 @@ Should you teach Python or R for data science?
 --------------
 Unofficial Windows Binaries for Python Extension Packages - Wheels
 - http://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+--------------
+Top 6 errors novice machine learning engineers make
+- https://medium.com/towards-data-science/top-6-errors-novice-machine-learning-engineers-make-e82273d394db
+
+--------------
+Becoming a Machine Learning Engineer | Step 2: Pick a Process
+- https://medium.com/towards-data-science/becoming-a-machine-learning-engineer-step-2-pick-a-process-942eef6ba8dd
+
+--------------
+Becoming a Machine Learning Engineer | Step 3: Pick Your Tool
+- https://medium.com/towards-data-science/becoming-a-machine-learning-engineer-step-3-pick-your-tool-da1903a2958f
