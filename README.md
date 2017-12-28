@@ -91,3 +91,11 @@ Becoming a Machine Learning Engineer | Step 2: Pick a Process
 --------------
 Becoming a Machine Learning Engineer | Step 3: Pick Your Tool
 - https://medium.com/towards-data-science/becoming-a-machine-learning-engineer-step-3-pick-your-tool-da1903a2958f
+
+--------------
+Parametric and Nonparametric Machine Learning Algorithms
+- https://machinelearningmastery.com/parametric-and-nonparametric-machine-learning-algorithms/
+
+--------------
+ML Mind Map
+- https://s3.amazonaws.com/MLMastery/MachineLearningAlgorithms.png?__s=tba8qgdaiyahops6sy3p
