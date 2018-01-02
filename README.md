@@ -99,3 +99,7 @@ Parametric and Nonparametric Machine Learning Algorithms
 --------------
 ML Mind Map
 - https://s3.amazonaws.com/MLMastery/MachineLearningAlgorithms.png?__s=tba8qgdaiyahops6sy3p
+
+--------------
+My Solution to the Galaxy Zoo Challenge
+- http://benanne.github.io/2014/04/05/galaxy-zoo.html
