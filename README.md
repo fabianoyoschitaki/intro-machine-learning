@@ -103,3 +103,11 @@ ML Mind Map
 --------------
 My Solution to the Galaxy Zoo Challenge
 - http://benanne.github.io/2014/04/05/galaxy-zoo.html
+
+--------------
+Object Recognition with Convolutional Neural Networks in the Keras Deep Learning Library
+- https://machinelearningmastery.com/object-recognition-convolutional-neural-networks-keras-deep-learning-library/
+
+--------------
+TODO TensorFlow Demo: MNIST for ML Beginners
+- https://github.com/IanLewis/tensorflow-examples/blob/master/notebooks/TensorFlow%20MNIST%20tutorial.ipynb
