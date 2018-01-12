@@ -111,3 +111,7 @@ Object Recognition with Convolutional Neural Networks in the Keras Deep Learning
 --------------
 TODO TensorFlow Demo: MNIST for ML Beginners
 - https://github.com/IanLewis/tensorflow-examples/blob/master/notebooks/TensorFlow%20MNIST%20tutorial.ipynb
+
+--------------
+TODO Your First Machine Learning Project in Python Step-By-Step
+- https://machinelearningmastery.com/machine-learning-in-python-step-by-step/
