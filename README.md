@@ -115,3 +115,7 @@ TODO TensorFlow Demo: MNIST for ML Beginners
 --------------
 TODO Your First Machine Learning Project in Python Step-By-Step
 - https://machinelearningmastery.com/machine-learning-in-python-step-by-step/
+
+--------------
+Undertand Bayes Theorem (Posterior, Likelihood, Prior and Evidence)
+- http://www.lichun.cc/blog/2013/07/understand-bayes-theorem-prior-likelihood-posterior-evidence/
