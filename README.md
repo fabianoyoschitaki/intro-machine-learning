@@ -119,3 +119,11 @@ TODO Your First Machine Learning Project in Python Step-By-Step
 --------------
 Undertand Bayes Theorem (Posterior, Likelihood, Prior and Evidence)
 - http://www.lichun.cc/blog/2013/07/understand-bayes-theorem-prior-likelihood-posterior-evidence/
+
+--------------
+Awesome Machine Learning
+- https://github.com/josephmisiti/awesome-machine-learning/blob/master/books.md
+
+--------------
+How do I learn Machine Learning?
+- https://www.quora.com/How-do-I-learn-machine-learning-1
