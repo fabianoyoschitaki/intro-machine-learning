@@ -131,3 +131,7 @@ How do I learn Machine Learning?
 --------------
 Embrace Randomness in Machine Learning
 - https://machinelearningmastery.com/randomness-in-machine-learning/
+
+--------------
+Redes Neurais Artificiais
+- http://conteudo.icmc.usp.br/pessoas/andre/research/neural/
