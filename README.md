@@ -127,3 +127,7 @@ Awesome Machine Learning
 --------------
 How do I learn Machine Learning?
 - https://www.quora.com/How-do-I-learn-machine-learning-1
+
+--------------
+Embrace Randomness in Machine Learning
+- https://machinelearningmastery.com/randomness-in-machine-learning/
