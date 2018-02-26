@@ -135,3 +135,8 @@ Embrace Randomness in Machine Learning
 --------------
 Redes Neurais Artificiais
 - http://conteudo.icmc.usp.br/pessoas/andre/research/neural/
+
+--------------
+https://pt.stackoverflow.com/questions/192098/como-funciona-uma-rede-neural-artificial
+https://pt.stackoverflow.com/questions/61187/como-implementar-a-camada-oculta-em-uma-rede-neural-de-reconhecimento-de-caracte
+https://pt.stackoverflow.com/questions/40135/explicar-o-algoritmo-svr/40149#40149
