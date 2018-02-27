@@ -140,6 +140,9 @@ Redes Neurais Artificiais
 https://pt.stackoverflow.com/questions/192098/como-funciona-uma-rede-neural-artificial
 https://pt.stackoverflow.com/questions/61187/como-implementar-a-camada-oculta-em-uma-rede-neural-de-reconhecimento-de-caracte
 https://pt.stackoverflow.com/questions/40135/explicar-o-algoritmo-svr/40149#40149
+https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks
 
 Análise de Componentes Principais
 - http://prorum.com/index.php/1557/estatistica-conhecido-componentes-principais-principal
+
+http://iamtrask.github.io/2015/07/12/basic-python-network/
