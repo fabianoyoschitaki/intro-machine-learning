@@ -146,3 +146,18 @@ Análise de Componentes Principais
 - http://prorum.com/index.php/1557/estatistica-conhecido-componentes-principais-principal
 
 http://iamtrask.github.io/2015/07/12/basic-python-network/
+
+
+--------------
+Deep Learning Book
+- http://www.deeplearningbook.org/
+
+--------------
+Keras Cheat Sheet: Neural Networks in Python
+- https://www.datacamp.com/community/blog/keras-cheat-sheet
+- https://www.datacamp.com/community/tutorials/deep-learning-python
+- https://www.datacamp.com/community/tutorials/keras-r-deep-learning
+
+--------------
+How to Setup a Python Environment for Machine Learning and Deep Learning with Anaconda
+- https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
