@@ -127,3 +127,12 @@ Awesome Machine Learning
 --------------
 How do I learn Machine Learning?
 - https://www.quora.com/How-do-I-learn-machine-learning-1
+
+--------------
+If you have already closed the Anaconda navigator, open cmd and type jupyter-notebook list.
+
+Then you can kill the port using following commands:
+netstat -o -n -a | findstr :3000
+   TCP    0.0.0.0:3000      0.0.0.0:0              LISTENING       3116
+taskkill /F /PID 3116
+https://stackoverflow.com/questions/46319617/how-to-stop-jupyter-server-using-anaconda
