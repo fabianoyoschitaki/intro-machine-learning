@@ -129,6 +129,41 @@ How do I learn Machine Learning?
 - https://www.quora.com/How-do-I-learn-machine-learning-1
 
 --------------
+Embrace Randomness in Machine Learning
+- https://machinelearningmastery.com/randomness-in-machine-learning/
+
+--------------
+Redes Neurais Artificiais
+- http://conteudo.icmc.usp.br/pessoas/andre/research/neural/
+
+--------------
+https://pt.stackoverflow.com/questions/192098/como-funciona-uma-rede-neural-artificial
+https://pt.stackoverflow.com/questions/61187/como-implementar-a-camada-oculta-em-uma-rede-neural-de-reconhecimento-de-caracte
+https://pt.stackoverflow.com/questions/40135/explicar-o-algoritmo-svr/40149#40149
+https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks
+
+Análise de Componentes Principais
+- http://prorum.com/index.php/1557/estatistica-conhecido-componentes-principais-principal
+
+http://iamtrask.github.io/2015/07/12/basic-python-network/
+
+
+--------------
+Deep Learning Book
+- http://www.deeplearningbook.org/
+
+--------------
+Keras Cheat Sheet: Neural Networks in Python
+- https://www.datacamp.com/community/blog/keras-cheat-sheet
+- https://www.datacamp.com/community/tutorials/deep-learning-python
+- https://www.datacamp.com/community/tutorials/keras-r-deep-learning
+
+--------------
+How to Setup a Python Environment for Machine Learning and Deep Learning with Anaconda
+- https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
+
+
+--------------
 If you have already closed the Anaconda navigator, open cmd and type jupyter-notebook list.
 
 Then you can kill the port using following commands:
