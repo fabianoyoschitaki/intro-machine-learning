@@ -161,3 +161,7 @@ Keras Cheat Sheet: Neural Networks in Python
 --------------
 How to Setup a Python Environment for Machine Learning and Deep Learning with Anaconda
 - https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
+
+--------------
+Building a Student Intervention System
+- http://www.ritchieng.com/machine-learning-project-student-intervention/
