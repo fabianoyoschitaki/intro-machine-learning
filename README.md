@@ -165,3 +165,7 @@ How to Setup a Python Environment for Machine Learning and Deep Learning with An
 --------------
 Building a Student Intervention System
 - http://www.ritchieng.com/machine-learning-project-student-intervention/
+
+--------------
+Machine Learning Algorithms: Which One to Choose for Your Problem
+- https://blog.statsbot.co/machine-learning-algorithms-183cc73197c
