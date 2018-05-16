@@ -1,0 +1,69 @@
+================================================================================================================================================
+x [Support Vector Machines (SVM)]
+	SVC(random_state=42) http://www.ritchieng.com/machine-learning-project-student-intervention/
+	SVC() https://github.com/e911miri/student-intervention/blob/master/student_intervention.ipynb
+	SVC() https://github.com/rahulravindran0108/student-intervention-system/blob/master/student_intervention.ipynb
+	SVC(random_state=my_random_state) https://dominicbreuker.com/student_intervention/
+	SVC(random_state = 23) https://github.com/mvirgo/student_intervention/blob/master/student_intervention.ipynb
+	SVC(random_state=rand_state) https://github.com/jasonicarter/MLND_student_intervention/blob/master/student_intervention.ipynb
+
+(1) Describe one real-world application in industry where the model can be applied. (You may need to do a small bit of research for this — give references!)
+(2) What are the strengths of the model; when does it perform well?
+(3) What are the weaknesses of the model; when does it perform poorly?
+(4) What makes this model a good candidate for the problem, given what you know about the data?
+
+================================================================================================================================================
+x [Gaussian Naive Bayes (GaussianNB)]
+	GaussianNB() http://www.ritchieng.com/machine-learning-project-student-intervention/
+	GaussianNB() https://github.com/e911miri/student-intervention/blob/master/student_intervention.ipynb
+	GaussianNB() https://github.com/rahulravindran0108/student-intervention-system/blob/master/student_intervention.ipynb
+	GaussianNB() https://t-lanigan.github.io/student-intervention/
+
+(1) Describe one real-world application in industry where the model can be applied. (You may need to do a small bit of research for this — give references!)
+(2) What are the strengths of the model; when does it perform well?
+(3) What are the weaknesses of the model; when does it perform poorly?
+(4) What makes this model a good candidate for the problem, given what you know about the data?
+
+================================================================================================================================================
+x [Decision Trees]
+	DecisionTreeClassifier() https://github.com/e911miri/student-intervention/blob/master/student_intervention.ipynb
+	DecisionTreeClassifier() https://github.com/rahulravindran0108/student-intervention-system/blob/master/student_intervention.ipynb
+	DecisionTreeClassifier(random_state = 23) https://github.com/mvirgo/student_intervention/blob/master/student_intervention.ipynb
+
+(1) Describe one real-world application in industry where the model can be applied. (You may need to do a small bit of research for this — give references!)
+(2) What are the strengths of the model; when does it perform well?
+(3) What are the weaknesses of the model; when does it perform poorly?
+(4) What makes this model a good candidate for the problem, given what you know about the data?
+
+================================================================================================================================================
+[Naive Bayes (MultinomialNB)]
+	MultinomialNB(alpha=10) https://github.com/Edderic/udacity-machine-learning-nanodegree/blob/master/p2-student-intervention/student_intervention.ipynb
+
+================================================================================================================================================
+[Ensemble Methods (AdaBoost)]
+	AdaBoostClassifier(random_state = ran_state) https://t-lanigan.github.io/student-intervention/
+	AdaBoostClassifier(random_state = 23)https://github.com/mvirgo/student_intervention/blob/master/student_intervention.ipynb
+	AdaBoostClassifier(n_estimators=3) https://github.com/Edderic/udacity-machine-learning-nanodegree/blob/master/p2-student-intervention/student_intervention.ipynb
+
+================================================================================================================================================
+[Ensemble Methods (Random Forest)]
+	RandomForestClassifier(random_state = ran_state) https://t-lanigan.github.io/student-intervention/
+	RandomForestClassifier(random_state=rand_state) https://github.com/jasonicarter/MLND_student_intervention/blob/master/student_intervention.ipynb
+	RandomForestClassifier(n_estimators=30) https://github.com/Edderic/udacity-machine-learning-nanodegree/blob/master/p2-student-intervention/student_intervention.ipynb
+
+================================================================================================================================================
+[Ensemble Methods (Gradient Boosting)]
+	GradientBoostingClassifier(random_state=my_random_state) https://dominicbreuker.com/student_intervention/
+
+================================================================================================================================================
+[K-Nearest Neighbors (KNeighbors)]
+	KNeighborsClassifier() https://github.com/jasonicarter/MLND_student_intervention/blob/master/student_intervention.ipynb
+
+================================================================================================================================================
+[Stochastic Gradient Descent (SGDC)]
+
+================================================================================================================================================
+[Logistic Regression]
+	LogisticRegression(random_state=42) http://www.ritchieng.com/machine-learning-project-student-intervention/
+	LogisticRegression(random_state=my_random_state) https://dominicbreuker.com/student_intervention/
+	
