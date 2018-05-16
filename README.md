@@ -184,3 +184,6 @@ taskkill /F /PID 3116
 Comparison of 14 different families of classification algorithms on 115 binary datasets
 - https://arxiv.org/pdf/1606.00930.pdf
 
+--------------
+Machine Learning Algorithms for Classification
+- https://www.cs.princeton.edu/~schapire/talks/picasso-minicourse.pdf
