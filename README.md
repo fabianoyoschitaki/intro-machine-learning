@@ -177,5 +177,10 @@ Then you can kill the port using following commands:
 netstat -o -n -a | findstr :3000
    TCP    0.0.0.0:3000      0.0.0.0:0              LISTENING       3116
 taskkill /F /PID 3116
-https://stackoverflow.com/questions/46319617/how-to-stop-jupyter-server-using-anaconda
->>>>>>> cc53b9d5de5efab4a9eb13ccb0a65c3c5e374501
+
+- https://stackoverflow.com/questions/46319617/how-to-stop-jupyter-server-using-anaconda
+
+--------------
+Comparison of 14 different families of classification algorithms on 115 binary datasets
+- https://arxiv.org/pdf/1606.00930.pdf
+
