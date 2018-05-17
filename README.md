@@ -191,3 +191,7 @@ Machine Learning Algorithms for Classification
 --------------
 In what real world applications is Naive Bayes classifier used?
 - https://www.quora.com/In-what-real-world-applications-is-Naive-Bayes-classifier-used
+
+--------------
+Support Vector Machines and Kernel Methods
+- https://www.cs.cmu.edu/~ggordon/SVMs/new-svms-and-kernels.pdf
