@@ -20,9 +20,21 @@ x [Gaussian Naive Bayes (GaussianNB)]
 	GaussianNB() https://t-lanigan.github.io/student-intervention/
 
 (1) Describe one real-world application in industry where the model can be applied. (You may need to do a small bit of research for this — give references!)
+	Classifying eggs. There is an interesting use of naive bayes (NB) as a learning algorithm to classify eggs into 2 groups:
+		Free-range eggs: These are eggs from hens who are able to roam freely
+		Battery eggs: These are eggs from hens who are kept in a small cage. Some may call this "unethical eggs"
+	The study revealed that NB provided a high accuracy of 90% when classifying between the 2 groups of eggs.
+	
 (2) What are the strengths of the model; when does it perform well?
+	- Converges quicker than discriminative models like Logistic Regression hence less data is required
+	
 (3) What are the weaknesses of the model; when does it perform poorly?
+	- Requires observations to be independent of one another. But in practice, the classifier performs quite well even when the independence assumption is violated
+	- Simple representation without opportunities for hyperparameter tuning
+	
 (4) What makes this model a good candidate for the problem, given what you know about the data?
+	This algorithm performs well for this problem because the data has the following properties:
+		- Low number of observations, Naive bayes performs well on small datasets.
 
 ================================================================================================================================================
 x [Decision Trees]

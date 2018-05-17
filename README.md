@@ -187,3 +187,7 @@ Comparison of 14 different families of classification algorithms on 115 binary d
 --------------
 Machine Learning Algorithms for Classification
 - https://www.cs.princeton.edu/~schapire/talks/picasso-minicourse.pdf
+
+--------------
+In what real world applications is Naive Bayes classifier used?
+- https://www.quora.com/In-what-real-world-applications-is-Naive-Bayes-classifier-used
